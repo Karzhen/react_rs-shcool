@@ -1,1 +1,2 @@
+cd class-component
 npx eslint ./src
