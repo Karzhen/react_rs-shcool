@@ -28,6 +28,8 @@
       "warn",
       { "allowConstantExport": true }
     ],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "warn",
     "max-lines-per-function": [
       "error",
       {
