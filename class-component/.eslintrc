@@ -16,7 +16,7 @@
   "ignorePatterns": ["dist", ".eslintrc.cjs"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "tsconfig.json"
+    "project": "./tsconfig.eslint.json"
   },
   "noInlineConfig": true,
   "plugins": ["react-refresh", "@typescript-eslint", "prettier"],
