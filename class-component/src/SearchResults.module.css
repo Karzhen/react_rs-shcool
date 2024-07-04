@@ -1,0 +1,36 @@
+/* SearchResults.module.css */
+
+.container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    background-color: #111;
+    color: #ffcc00;
+    font-family: 'Star Jedi', Arial, sans-serif;
+}
+
+.resultList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.resultItem {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ffcc00;
+}
+
+.resultItem:last-child {
+    border-bottom: none;
+}
+
+.resultName {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.resultDetail {
+    font-size: 14px;
+    color: #ccc;
+}

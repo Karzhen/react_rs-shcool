@@ -1,0 +1,14 @@
+.container {
+    padding: 20px;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    background-color: #300;
+    color: #ffcc00;
+    font-family: 'Star Jedi', Arial, sans-serif;
+    text-align: center;
+}
+
+.errorMessage {
+    font-size: 18px;
+    margin-top: 10px;
+}
