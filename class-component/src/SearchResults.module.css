@@ -1,36 +1,44 @@
-/* SearchResults.module.css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
 
 .container {
     margin-top: 20px;
     padding: 20px;
     border: 2px solid #ffcc00;
     border-radius: 5px;
-    background-color: #111;
+    /*background-color: #111;*/
+    background-image: url('../public/images/photorealistic-dark-blur-background-for-star-wars-.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*filter: blur(5px);*/
     color: #ffcc00;
     font-family: 'Star Jedi', Arial, sans-serif;
 }
 
-.resultList {
-    list-style-type: none;
-    padding: 0;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.resultItem {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-bottom: 1px solid #ffcc00;
+.card {
+    padding: 15px;
+    border: 1px solid #ffcc00;
+    border-radius: 10px;
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
-.resultItem:last-child {
-    border-bottom: none;
+.character-image {
+    width: 100%;
 }
 
-.resultName {
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.resultDetail {
-    font-size: 14px;
-    color: #ccc;
+.result-name {
+    align-self: center;
+    color: #ffcc00;
 }

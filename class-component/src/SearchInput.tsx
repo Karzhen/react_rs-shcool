@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import styles from './SearchInput.module.css';
 
-type SearchInputProps  =  {
+type SearchInputProps = {
     onSearch: (input: string) => void;
-}
+};
 
 type SearchInputState = {
     input: string;
-}
+};
 
-class SearchInput extends Component<SearchInputProps, SearchInputState>  {
+class SearchInput extends Component<SearchInputProps, SearchInputState> {
     constructor(props) {
         super(props);
         this.state = {
-            input: ''
+            input: '',
         };
     }
 
@@ -35,7 +35,9 @@ class SearchInput extends Component<SearchInputProps, SearchInputState>  {
                     onChange={this.handleChange}
                     placeholder="Enter search term"
                 />
-                <button className={styles.button} onClick={this.handleSearch}>Search</button>
+                <button className={styles.button} onClick={this.handleSearch}>
+                    Search
+                </button>
             </div>
         );
     }

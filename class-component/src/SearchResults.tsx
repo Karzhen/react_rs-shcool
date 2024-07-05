@@ -18,34 +18,67 @@ type Character = {
     films: string[];
 };
 
-class SearchResults extends Component<SearchResultsProps, {}> {
+class SearchResults extends Component<
+    SearchResultsProps,
+    Record<string, never>
+> {
     render() {
         const { results } = this.props;
 
         return (
             <div className={styles.container}>
                 {results.length > 0 ? (
-                    <ul className={styles.resultList}>
+                    <div className={styles.grid}>
                         {results.map((result, index) => (
-                            <li key={index} className={styles.resultItem}>
-                                <h3 className={styles.resultName}>{result.name}</h3>
-                                <p><strong>Height:</strong> {result.height}</p>
-                                <p><strong>Mass:</strong> {result.mass}</p>
-                                <p><strong>Hair Color:</strong> {result.hair_color}</p>
-                                <p><strong>Skin Color:</strong> {result.skin_color}</p>
-                                <p><strong>Eye Color:</strong> {result.eye_color}</p>
-                                <p><strong>Birth Year:</strong> {result.birth_year}</p>
-                                <p><strong>Gender:</strong> {result.gender}</p>
-                                <p><strong>Homeworld:</strong> {result.homeworld}</p>
-                                <p><strong>Films:</strong></p>
+                            <div key={index} className={styles.card}>
+                                <img
+                                    src={`/images/characters/${result.name.toLowerCase().replace(/ /g, '_')}.png`}
+                                    alt={result.name}
+                                    className={styles['character-image']}
+                                />
+                                <h3 className={styles['result-name']}>
+                                    {result.name}
+                                </h3>
+                                <p>
+                                    <strong>Height:</strong> {result.height}
+                                </p>
+                                <p>
+                                    <strong>Mass:</strong> {result.mass}
+                                </p>
+                                <p>
+                                    <strong>Hair Color:</strong>{' '}
+                                    {result.hair_color}
+                                </p>
+                                <p>
+                                    <strong>Skin Color:</strong>{' '}
+                                    {result.skin_color}
+                                </p>
+                                <p>
+                                    <strong>Eye Color:</strong>{' '}
+                                    {result.eye_color}
+                                </p>
+                                <p>
+                                    <strong>Birth Year:</strong>{' '}
+                                    {result.birth_year}
+                                </p>
+                                <p>
+                                    <strong>Gender:</strong> {result.gender}
+                                </p>
+                                <p>
+                                    <strong>Homeworld:</strong>{' '}
+                                    {result.homeworld}
+                                </p>
+                                <p>
+                                    <strong>Films:</strong>
+                                </p>
                                 <ul>
                                     {result.films.map((film, filmIndex) => (
                                         <li key={filmIndex}>{film}</li>
                                     ))}
                                 </ul>
-                            </li>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                 ) : (
                     <p>No results found</p>
                 )}

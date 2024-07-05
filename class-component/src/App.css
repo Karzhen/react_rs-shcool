@@ -4,7 +4,8 @@
 }
 
 body {
-    background-color: #000;
+    /*background-color: #000;*/
+    background-image: url('../public/images/photorealistic-dark-blur-background-for-star-wars-.png');
     color: #ffcc00;
     font-family: Arial, sans-serif;
 }
