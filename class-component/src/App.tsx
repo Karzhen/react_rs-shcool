@@ -63,12 +63,12 @@ class App extends Component<Record<string, never>, AppState> {
                 throw new Error('Failed to fetch data');
             }
             const data = await response.json();
+            console.log(data);
 
             const resultsArray = [];
             data.results.forEach((result) => {
                 resultsArray.push(result.name);
             });
-            console.log(resultsArray);
 
             const characters = await Promise.all(
                 data.results.map(async (character: Character) => {

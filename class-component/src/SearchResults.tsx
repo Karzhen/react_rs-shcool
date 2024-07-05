@@ -25,20 +25,27 @@ class SearchResults extends Component<
     render() {
         const { results } = this.props;
 
+        // Искусственно вызываем ошибку для тестирования ErrorBoundary
+        // if (results.length > 0 && results[0].name === 'Luke Skywalker') {
+        //     throw new Error('Test error');
+        // }
+
         return (
             <div className={styles.container}>
                 {results.length > 0 ? (
                     <div className={styles.grid}>
                         {results.map((result, index) => (
                             <div key={index} className={styles.card}>
-                                <img
-                                    src={`/images/characters/${result.name.toLowerCase().replace(/ /g, '_')}.png`}
-                                    alt={result.name}
-                                    className={styles['character-image']}
-                                />
-                                <h3 className={styles['result-name']}>
-                                    {result.name}
-                                </h3>
+                                <div className={styles['card-header']}>
+                                    <h3 className={styles['result-name']}>
+                                        {result.name}
+                                    </h3>
+                                    <img
+                                        src={`/images/characters/${result.name.toLowerCase().replace(/ /g, '_')}.png`}
+                                        alt={result.name}
+                                        className={styles['character-image']}
+                                    />
+                                </div>
                                 <p>
                                     <strong>Height:</strong> {result.height}
                                 </p>

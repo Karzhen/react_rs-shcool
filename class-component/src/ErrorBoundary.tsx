@@ -27,6 +27,10 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
         this.setState({ hasError: true });
     }
 
+    triggerError = (): void => {
+        this.setState({ hasError: true });
+    }
+
     render() {
         if (this.state.hasError) {
             return (
@@ -39,7 +43,12 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             );
         }
 
-        return this.props.children;
+        return (
+            <div>
+                <button onClick={this.triggerError} className={styles.triggerButton}>Trigger Error</button>
+                {this.props.children}
+            </div>
+        );
     }
 }
 

@@ -20,7 +20,7 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
@@ -34,11 +34,22 @@
     flex-direction: column;
 }
 
-.character-image {
+.card-header {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .result-name {
     align-self: center;
     color: #ffcc00;
 }
+
+.character-image {
+    width: 50%;
+    border: 1px solid #ffcc00;
+    border-radius: 10px;
+    align-self: end;
+}
+
+
