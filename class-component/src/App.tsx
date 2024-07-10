@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import SearchInput from './SearchInput';
 import SearchResults from './SearchResults';
 import ErrorBoundary from './ErrorBoundary';
@@ -6,6 +6,7 @@ import ErrorBoundary from './ErrorBoundary';
 type AppState = {
     searchTerm: string;
     searchResults: Character[];
+    hasError: boolean;
     error: Error | null;
     isLoading: boolean;
     next: string | null;
@@ -31,6 +32,7 @@ class App extends Component<Record<string, never>, AppState> {
         this.state = {
             searchTerm: '',
             searchResults: [],
+            hasError: false,
             error: null,
             isLoading: false,
             next: null,
@@ -54,7 +56,15 @@ class App extends Component<Record<string, never>, AppState> {
         searchTerm: string,
         url: string | null = null,
     ) => {
-        this.setState({ isLoading: true });
+        this.setState({
+            searchTerm: searchTerm.trim(),
+            searchResults: [],
+            hasError: false,
+            error: null,
+            isLoading: true,
+            next: null,
+            prev: null,
+        });
         try {
             const response = await fetch(
                 url || `https://swapi.dev/api/people/?search=${searchTerm}`,
@@ -66,7 +76,7 @@ class App extends Component<Record<string, never>, AppState> {
             console.log(data);
 
             const resultsArray = [];
-            data.results.forEach((result) => {
+            data.results.forEach((result: Character) => {
                 resultsArray.push(result.name);
             });
 
@@ -87,6 +97,7 @@ class App extends Component<Record<string, never>, AppState> {
             this.setState({
                 searchTerm: searchTerm.trim(),
                 searchResults: characters,
+                hasError: false,
                 error: null,
                 isLoading: false,
                 next: data.next,
@@ -100,6 +111,7 @@ class App extends Component<Record<string, never>, AppState> {
                 this.setState({
                     searchTerm: '',
                     searchResults: [],
+                    hasError: true,
                     error,
                     isLoading: false,
                     next: null,
@@ -145,7 +157,7 @@ class App extends Component<Record<string, never>, AppState> {
             <div className="App">
                 <ErrorBoundary>
                     <SearchInput onSearch={this.handleSearch} />
-                    {isLoading && <p>Loading...</p>}
+                    {isLoading && <h3>Loading...</h3>}
                     <SearchResults results={searchResults} />
                     {error && <p>Error: {error.message}</p>}
                     <div className="pagination">

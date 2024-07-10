@@ -28,8 +28,9 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     }
 
     triggerError = (): void => {
+        console.error('This test error is Empty, but it\'s already here');
         this.setState({ hasError: true });
-    }
+    };
 
     render() {
         if (this.state.hasError) {
@@ -45,7 +46,12 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
         return (
             <div>
-                <button onClick={this.triggerError} className={styles.triggerButton}>Trigger Error</button>
+                <button
+                    onClick={this.triggerError}
+                    className={styles.triggerButton}
+                >
+                    Trigger Error
+                </button>
                 {this.props.children}
             </div>
         );

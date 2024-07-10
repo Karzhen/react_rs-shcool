@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component, ChangeEvent } from 'react';
 import styles from './SearchInput.module.css';
 
 type SearchInputProps = {
@@ -8,16 +8,18 @@ type SearchInputProps = {
 type SearchInputState = {
     input: string;
 };
+const lastSearchTerm = localStorage.getItem('lastSearchTerm') || '';
 
 class SearchInput extends Component<SearchInputProps, SearchInputState> {
-    constructor(props) {
+
+    constructor(props: SearchInputProps) {
         super(props);
         this.state = {
-            input: '',
+            input: lastSearchTerm,
         };
     }
 
-    handleChange = (event) => {
+    handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         this.setState({ input: event.target.value });
     };
 
