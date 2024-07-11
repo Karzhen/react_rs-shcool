@@ -3,6 +3,7 @@ import SearchInput from './SearchInput';
 import SearchResults from './SearchResults';
 import ErrorBoundary from './ErrorBoundary';
 import Loader from './Loader';
+import ErrorMessage from './ErrorMessage';
 import { AppState } from './types';
 import {
     fetchSearchResults,
@@ -10,6 +11,7 @@ import {
     handleNextPage,
     handlePrevPage,
 } from './search';
+import Pagination from "./Pagination.tsx";
 
 class App extends Component<Record<string, never>, AppState> {
     constructor(props: Record<string, never>) {
@@ -40,19 +42,13 @@ class App extends Component<Record<string, never>, AppState> {
                     />
                     {isLoading && <Loader />}
                     <SearchResults results={searchResults} />
-                    {error && <p>Error: {error.message}</p>}
-                    <div className="pagination">
-                        {prev && (
-                            <button onClick={() => handlePrevPage(this)}>
-                                Prev Page
-                            </button>
-                        )}
-                        {next && (
-                            <button onClick={() => handleNextPage(this)}>
-                                Next Page
-                            </button>
-                        )}
-                    </div>
+                    <ErrorMessage error={error} />
+                    <Pagination
+                        next={next}
+                        prev={prev}
+                        handleNextPage={() => handleNextPage(this)}
+                        handlePrevPage={() => handlePrevPage(this)}
+                    />
                 </ErrorBoundary>
             </div>
         );
