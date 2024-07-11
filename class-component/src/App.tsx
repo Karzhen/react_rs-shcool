@@ -11,7 +11,7 @@ import {
     handleNextPage,
     handlePrevPage,
 } from './search';
-import Pagination from "./Pagination.tsx";
+import Pagination from './Pagination.tsx';
 
 class App extends Component<Record<string, never>, AppState> {
     constructor(props: Record<string, never>) {

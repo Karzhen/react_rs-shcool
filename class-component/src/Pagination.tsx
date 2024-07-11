@@ -7,19 +7,16 @@ type PaginationProps = {
     handlePrevPage: () => void;
 };
 
-const Pagination: React.FC<PaginationProps> = ({ next, prev, handleNextPage, handlePrevPage }) => {
+const Pagination: React.FC<PaginationProps> = ({
+    next,
+    prev,
+    handleNextPage,
+    handlePrevPage,
+}) => {
     return (
         <div className="pagination">
-            {prev && (
-                <button onClick={handlePrevPage}>
-                    Prev Page
-                </button>
-            )}
-            {next && (
-                <button onClick={handleNextPage}>
-                    Next Page
-                </button>
-            )}
+            {prev && <button onClick={handlePrevPage}>Prev Page</button>}
+            {next && <button onClick={handleNextPage}>Next Page</button>}
         </div>
     );
 };
