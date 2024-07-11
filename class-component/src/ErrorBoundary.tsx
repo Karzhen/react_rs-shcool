@@ -28,7 +28,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     }
 
     triggerError = (): void => {
-        console.error('This test error is Empty, but it\'s already here');
+        console.error("This test error is Empty, but it's already here");
         this.setState({ hasError: true });
     };
 

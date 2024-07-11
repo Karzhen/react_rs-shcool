@@ -5,6 +5,18 @@
     margin-top: 20px;
 }
 
+.link {
+    color: white;
+}
+
+.link:hover {
+    color: #ffdd22;
+}
+
+.link:visited {
+    color: white;
+}
+
 .input {
     width: 300px;
     padding: 10px;
