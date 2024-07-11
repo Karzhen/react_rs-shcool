@@ -2,7 +2,8 @@ import { Component } from 'react';
 import SearchInput from './SearchInput';
 import SearchResults from './SearchResults';
 import ErrorBoundary from './ErrorBoundary';
-import { Character, AppState } from './types';
+import Loader from './Loader';
+import { AppState } from './types';
 import {
     fetchSearchResults,
     fetchLastSearchTerm,
@@ -34,13 +35,23 @@ class App extends Component<Record<string, never>, AppState> {
         return (
             <div className="App">
                 <ErrorBoundary>
-                    <SearchInput onSearch={(term) => fetchSearchResults(this, term)} />
-                    {isLoading && <h3>Loading...</h3>}
+                    <SearchInput
+                        onSearch={(term) => fetchSearchResults(this, term)}
+                    />
+                    {isLoading && <Loader />}
                     <SearchResults results={searchResults} />
                     {error && <p>Error: {error.message}</p>}
                     <div className="pagination">
-                        {prev && <button onClick={() => handlePrevPage(this)}>Prev Page</button>}
-                        {next && <button onClick={() => handleNextPage(this)}>Next Page</button>}
+                        {prev && (
+                            <button onClick={() => handlePrevPage(this)}>
+                                Prev Page
+                            </button>
+                        )}
+                        {next && (
+                            <button onClick={() => handleNextPage(this)}>
+                                Next Page
+                            </button>
+                        )}
                     </div>
                 </ErrorBoundary>
             </div>

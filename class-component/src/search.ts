@@ -1,11 +1,11 @@
 import { AppState, Character } from './types';
 import { fetchFilmTitle, fetchHomeworldName } from './apiUtils';
-import React from "react";
+import React from 'react';
 
 export const fetchSearchResults = async (
     component: React.Component<Record<string, never>, AppState>,
     searchTerm: string,
-    url: string | null = null
+    url: string | null = null,
 ) => {
     component.setState({
         searchTerm: searchTerm.trim(),
@@ -18,7 +18,9 @@ export const fetchSearchResults = async (
     });
 
     try {
-        const response = await fetch(url || `https://swapi.dev/api/people/?search=${searchTerm}`);
+        const response = await fetch(
+            url || `https://swapi.dev/api/people/?search=${searchTerm}`,
+        );
         if (!response.ok) {
             throw new Error('Failed to fetch data');
         }
@@ -27,11 +29,13 @@ export const fetchSearchResults = async (
         const characters = await Promise.all(
             data.results.map(async (character: Character) => {
                 const films = await Promise.all(
-                    character.films.map((filmUrl: string) => fetchFilmTitle(filmUrl))
+                    character.films.map((filmUrl: string) =>
+                        fetchFilmTitle(filmUrl),
+                    ),
                 );
                 const homeworld = await fetchHomeworldName(character.homeworld);
                 return { ...character, films, homeworld };
-            })
+            }),
         );
 
         component.setState({
@@ -65,14 +69,14 @@ export const fetchSearchResults = async (
 };
 
 export const fetchLastSearchTerm = async (
-    component: React.Component<Record<string, never>, AppState>
+    component: React.Component<Record<string, never>, AppState>,
 ) => {
     const lastSearchTerm = localStorage.getItem('lastSearchTerm') || '';
     await fetchSearchResults(component, lastSearchTerm);
 };
 
 export const handleNextPage = async (
-    component: React.Component<Record<string, never>, AppState>
+    component: React.Component<Record<string, never>, AppState>,
 ) => {
     const { searchTerm, next } = component.state;
     if (next) {
@@ -81,7 +85,7 @@ export const handleNextPage = async (
 };
 
 export const handlePrevPage = async (
-    component: React.Component<Record<string, never>, AppState>
+    component: React.Component<Record<string, never>, AppState>,
 ) => {
     const { searchTerm, prev } = component.state;
     if (prev) {

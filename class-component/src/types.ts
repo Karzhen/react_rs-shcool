@@ -11,12 +11,14 @@ export type Character = {
     films: string[];
 };
 
+export type Nullable<T> = T | null;
+
 export type AppState = {
     searchTerm: string;
     searchResults: Character[];
     hasError: boolean;
-    error: Error | null;
+    error: Nullable<Error>;
     isLoading: boolean;
-    next: string | null;
-    prev: string | null;
+    next: Nullable<string>;
+    prev: Nullable<string>;
 };
