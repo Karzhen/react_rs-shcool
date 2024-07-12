@@ -1,11 +1,6 @@
 import React from 'react';
-
-type PaginationProps = {
-    next: string | null;
-    prev: string | null;
-    handleNextPage: () => void;
-    handlePrevPage: () => void;
-};
+import { PaginationProps } from './types';
+import styles from './Pagination.module.css';
 
 const Pagination: React.FC<PaginationProps> = ({
     next,
@@ -14,9 +9,9 @@ const Pagination: React.FC<PaginationProps> = ({
     handlePrevPage,
 }) => {
     return (
-        <div className="pagination">
-            {prev && <button onClick={handlePrevPage}>Prev Page</button>}
-            {next && <button onClick={handleNextPage}>Next Page</button>}
+        <div className={styles.pagination}>
+            {prev && <button className={styles['pagination-button']} onClick={handlePrevPage}>Prev Page</button>}
+            {next && <button className={styles['pagination-button']} onClick={handleNextPage}>Next Page</button>}
         </div>
     );
 };

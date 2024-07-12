@@ -26,3 +26,10 @@ export type AppState = {
     next: Nullable<string>;
     prev: Nullable<string>;
 };
+
+export type PaginationProps = {
+    next: Nullable<string>;
+    prev: Nullable<string>;
+    handleNextPage: () => void;
+    handlePrevPage: () => void;
+};

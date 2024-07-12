@@ -1,0 +1,29 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.pagination-button {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Star Jedi', Arial, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.pagination-button:hover {
+    background-color: #333;
+    color: #ffdd22;
+    border-color: #31ff22;
+}
+
+.pagination-button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
