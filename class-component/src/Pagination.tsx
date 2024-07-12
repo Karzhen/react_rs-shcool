@@ -10,8 +10,22 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
     return (
         <div className={styles.pagination}>
-            {prev && <button className={styles['pagination-button']} onClick={handlePrevPage}>Prev Page</button>}
-            {next && <button className={styles['pagination-button']} onClick={handleNextPage}>Next Page</button>}
+            {prev && (
+                <button
+                    className={styles['pagination-button']}
+                    onClick={handlePrevPage}
+                >
+                    Prev Page
+                </button>
+            )}
+            {next && (
+                <button
+                    className={styles['pagination-button']}
+                    onClick={handleNextPage}
+                >
+                    Next Page
+                </button>
+            )}
         </div>
     );
 };
