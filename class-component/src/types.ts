@@ -11,6 +11,10 @@ export type Character = {
     films: string[];
 };
 
+export type CharacterCardProps = {
+    character: Character;
+};
+
 export type Nullable<T> = T | null;
 
 export type AppState = {

@@ -1,63 +1,55 @@
 import React from 'react';
+import CharacterDetail from './CharacterDetail';
 import styles from './CharacterCard.module.css';
-
-type Character = {
-    name: string;
-    height: string;
-    mass: string;
-    hair_color: string;
-    skin_color: string;
-    eye_color: string;
-    birth_year: string;
-    gender: string;
-    homeworld: string;
-    films: string[];
-};
-
-type CharacterCardProps = {
-    character: Character;
-};
+import { CharacterCardProps } from './types';
 
 const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+    const {
+        name,
+        height,
+        mass,
+        hair_color,
+        skin_color,
+        eye_color,
+        birth_year,
+        gender,
+        homeworld,
+        films,
+    } = character;
+
     return (
         <div className={styles.card}>
             <div className={styles['card-header']}>
-                <h3 className={styles['result-name']}>{character.name}</h3>
+                <h3 className={styles['result-name']}>{name}</h3>
                 <img
-                    src={`/images/characters/${character.name.toLowerCase().replace(/ /g, '_')}.png`}
-                    alt={character.name}
+                    src={`/images/characters/${name.toLowerCase().replace(/ /g, '_')}.png`}
+                    alt={name}
                     className={styles['character-image']}
                 />
             </div>
-            <p>
-                <strong>Height:</strong> {character.height}
-            </p>
-            <p>
-                <strong>Mass:</strong> {character.mass}
-            </p>
-            <p>
-                <strong>Hair Color:</strong> {character.hair_color}
-            </p>
-            <p>
-                <strong>Skin Color:</strong> {character.skin_color}
-            </p>
-            <p>
-                <strong>Eye Color:</strong> {character.eye_color}
-            </p>
-            <p>
-                <strong>Birth Year:</strong> {character.birth_year}
-            </p>
-            <p>
-                <strong>Gender:</strong> {character.gender}
-            </p>
-            <p>
-                <strong>Homeworld:</strong> {character.homeworld}
-            </p>
+            {height && <CharacterDetail label="Height" value={height} />}
+            {mass && <CharacterDetail label="Mass" value={mass} />}
+            {hair_color && (
+                <CharacterDetail label="Hair Color" value={hair_color} />
+            )}
+            {skin_color && (
+                <CharacterDetail label="Skin Color" value={skin_color} />
+            )}
+            {eye_color && (
+                <CharacterDetail label="Eye Color" value={eye_color} />
+            )}
+            {birth_year && (
+                <CharacterDetail label="Birth Year" value={birth_year} />
+            )}
+            {gender && <CharacterDetail label="Gender" value={gender} />}
+            {homeworld && (
+                <CharacterDetail label="Homeworld" value={homeworld} />
+            )}
             <p>
                 <strong>Films:</strong>
             </p>
             <ul>
-                {character.films.map((film, index) => (
+                {films.map((film, index) => (
                     <li key={index}>{film}</li>
                 ))}
             </ul>

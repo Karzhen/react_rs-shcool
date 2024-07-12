@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import styles from './SearchResults.module.css';
-import CharacterCard from "./CharacterCard.tsx";
+import CharacterCard from './CharacterCard.tsx';
 
 type SearchResultsProps = {
     results: Character[];
