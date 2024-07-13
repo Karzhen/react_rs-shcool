@@ -15,6 +15,11 @@ export type CharacterCardProps = {
     character: Character;
 };
 
+export type CharacterDetailProps = {
+    label: string;
+    value: string;
+};
+
 export type SearchResultsProps = {
     results: Character[];
 };

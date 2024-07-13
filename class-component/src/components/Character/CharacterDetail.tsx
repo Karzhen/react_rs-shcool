@@ -1,9 +1,5 @@
 import React from 'react';
-
-type CharacterDetailProps = {
-    label: string;
-    value: string;
-};
+import { CharacterDetailProps } from '../../types.ts';
 
 const CharacterDetail: React.FC<CharacterDetailProps> = ({ label, value }) => {
     return (
