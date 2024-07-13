@@ -1,7 +1,7 @@
 import React from 'react';
-import CharacterDetail from './CharacterDetail';
+import CharacterDetail from './CharacterDetail.tsx';
 import styles from './CharacterCard.module.css';
-import { CharacterCardProps } from './types';
+import { CharacterCardProps } from '../../types.ts';
 
 const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
     const {

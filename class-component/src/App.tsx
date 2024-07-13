@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import SearchInput from './SearchInput';
-import SearchResults from './SearchResults';
-import ErrorBoundary from './ErrorBoundary';
-import Loader from './Loader';
+import SearchInput from './components/SearchInput/SearchInput.tsx';
+import SearchResults from './components/SearchResults/SearchResults.tsx';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.tsx';
+import Loader from './components/Loader/Loader.tsx';
 import ErrorMessage from './ErrorMessage';
 import { AppState } from './types';
 import {
@@ -10,8 +10,8 @@ import {
     fetchLastSearchTerm,
     handleNextPage,
     handlePrevPage,
-} from './search';
-import Pagination from './Pagination.tsx';
+} from './components/utils/search.ts';
+import Pagination from './components/Pagination/Pagination.tsx';
 import './App.css';
 
 class App extends Component<Record<string, never>, AppState> {

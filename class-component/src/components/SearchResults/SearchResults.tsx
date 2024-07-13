@@ -1,23 +1,7 @@
 import { Component } from 'react';
 import styles from './SearchResults.module.css';
-import CharacterCard from './CharacterCard.tsx';
-
-type SearchResultsProps = {
-    results: Character[];
-};
-
-type Character = {
-    name: string;
-    height: string;
-    mass: string;
-    hair_color: string;
-    skin_color: string;
-    eye_color: string;
-    birth_year: string;
-    gender: string;
-    homeworld: string;
-    films: string[];
-};
+import CharacterCard from '../Character/CharacterCard.tsx';
+import { SearchResultsProps } from '../../types.ts';
 
 class SearchResults extends Component<
     SearchResultsProps,

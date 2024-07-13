@@ -40,7 +40,8 @@ class SearchInput extends Component<SearchInputProps, SearchInputState> {
                     Ссылка на PR. Прошу понять и простить
                 </a>
                 <div className={styles.container}>
-                    <input className={styles.input}
+                    <input
+                        className={styles.input}
                         type="text"
                         value={this.state.input}
                         onChange={this.handleChange}

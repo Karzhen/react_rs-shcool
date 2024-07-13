@@ -1,5 +1,5 @@
-import { AppState, Character } from './types';
-import { fetchFilmTitle, fetchHomeworldName } from './apiUtils';
+import { AppState, Character } from '../../types.ts';
+import { fetchFilmTitle, fetchHomeworldName } from './apiUtils.ts';
 import React from 'react';
 
 export const fetchSearchResults = async (

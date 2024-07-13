@@ -1,9 +1,5 @@
 import React from 'react';
-import { Nullable } from './types';
-
-type ErrorMessageProps = {
-    error: Nullable<Error>;
-};
+import {ErrorMessageProps, Nullable} from './types';
 
 const ErrorMessage: React.FC<ErrorMessageProps> = ({ error }) => {
     if (!error) return null;

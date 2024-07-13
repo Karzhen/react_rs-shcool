@@ -15,7 +15,15 @@ export type CharacterCardProps = {
     character: Character;
 };
 
+export type SearchResultsProps = {
+    results: Character[];
+};
+
 export type Nullable<T> = T | null;
+
+export type ErrorMessageProps = {
+    error: Nullable<Error>;
+};
 
 export type AppState = {
     searchTerm: string;
