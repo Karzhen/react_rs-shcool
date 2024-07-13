@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type Character = {
     name: string;
     height: string;
@@ -18,6 +20,10 @@ export type CharacterCardProps = {
 export type CharacterDetailProps = {
     label: string;
     value: string;
+};
+
+export type SearchInputProps = {
+    onSearch: (input: string) => void;
 };
 
 export type SearchResultsProps = {
@@ -45,4 +51,12 @@ export type PaginationProps = {
     prev: Nullable<string>;
     handleNextPage: () => void;
     handlePrevPage: () => void;
+};
+
+export type ErrorBoundaryProps = {
+    children: ReactNode;
+};
+
+export type ErrorBoundaryState = {
+    hasError: boolean;
 };
