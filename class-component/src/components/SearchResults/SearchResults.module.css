@@ -1,0 +1,17 @@
+.container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    background-image: url('../../../public/images/photorealistic-dark-blur-background-for-star-wars-.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffcc00;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}

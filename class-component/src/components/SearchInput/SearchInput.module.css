@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.link {
+    color: white;
+}
+
+.link:hover {
+    color: #ffdd22;
+}
+
+.link:visited {
+    color: white;
+}
+
+.input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #ffcc00;
+    background-color: #222;
+    color: #ffcc00;
+    font-size: 16px;
+}
+
+.button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffcc00;
+    color: #222;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.button:hover {
+    background-color: #ffdd22;
+}

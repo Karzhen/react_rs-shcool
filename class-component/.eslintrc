@@ -1,0 +1,47 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": ["dist"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json"
+  },
+  "noInlineConfig": true,
+  "plugins": ["react-refresh", "@typescript-eslint", "prettier"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "error",
+    "no-console": "warn",
+    "no-debugger": "warn",
+    "no-var": "error",
+    "react-refresh/only-export-components": [
+      "warn",
+      { "allowConstantExport": true }
+    ],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "warn",
+    "max-lines-per-function": [
+      "error",
+      {
+        "max": 100,
+        "skipBlankLines": true,
+        "skipComments": true,
+        "IIFEs": true
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}

@@ -1,0 +1,4 @@
+cd class-component
+npx prettier --check ./src
+npx prettier --check index.html
+npx eslint ./src
