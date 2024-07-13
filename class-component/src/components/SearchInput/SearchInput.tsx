@@ -1,17 +1,28 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { useState, ChangeEvent, useEffect } from 'react';
 import styles from './SearchInput.module.css';
-import useLocalStorage from '../hooks/useLocalStorage';
-import {SearchInputProps} from "../../types.ts";
+import { SearchInputProps } from '../../types.ts';
+import useLocalStorage from '../../hooks/useLocalStorage.ts';
 
 const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
-    const [input, setInput] = useLocalStorage('lastSearchTerm', '');
+    const [input, setInput] = useState('');
+    const [storedSearchTerm, setStoredSearchTerm] = useLocalStorage(
+        'lastSearchTerm',
+        '',
+    );
+
+    useEffect(() => {
+        setInput(storedSearchTerm);
+    }, []);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setInput(event.target.value);
     };
 
     const handleSearch = () => {
-        onSearch(input.trim());
+        const trimmedInput = input.trim();
+        // console.log(`'${trimmedInput}'`)
+        setStoredSearchTerm(trimmedInput);
+        onSearch(trimmedInput);
     };
 
     return (
@@ -23,10 +34,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
                 onChange={handleChange}
                 placeholder="Enter search term"
             />
-            <button
-                className={styles.button}
-                onClick={handleSearch}
-            >
+            <button className={styles.button} onClick={handleSearch}>
                 Search
             </button>
         </div>

@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component } from 'react';
 import styles from './ErrorBoundary.module.css';
 import { ErrorBoundaryProps, ErrorBoundaryState } from '../../types.ts';
 

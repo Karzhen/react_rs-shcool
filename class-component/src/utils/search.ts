@@ -1,4 +1,4 @@
-import { AppState, Character } from '../../types.ts';
+import { AppState, Character } from '../types.ts';
 import { fetchFilmTitle, fetchHomeworldName } from './apiUtils.ts';
 import React from 'react';
 
