@@ -27,9 +27,10 @@ export type SearchInputProps = {
 };
 
 export type SearchResultsProps = {
-    searchResults: Character[];
-    isLoading: boolean;
-    error: Nullable<Error>;
+    // searchResults: Character[];
+    // isLoading: boolean;
+    // error: Nullable<Error>;
+    searchTerm: string;
 };
 
 export type Nullable<T> = T | null;

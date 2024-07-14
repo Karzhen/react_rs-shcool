@@ -5,7 +5,10 @@ import { CharacterCardProps } from '../../types.ts';
 // import { useFetchHomeworldName } from '../../hooks/useFetchHomeworldName.tsx';
 // import { useFetchFilmTitles } from '../../hooks/useFetchFilmTitle.tsx';
 
-const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+const CharacterCard: React.FC<CharacterCardProps> = ({
+    character,
+    onClick,
+}) => {
     const {
         name,
         height,
@@ -23,7 +26,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
     // const homeworldName = useFetchHomeworldName(homeworld);
 
     return (
-        <div className={styles.card}>
+        <div className={styles.card} onClick={onClick}>
             <div className={styles['card-header']}>
                 <h3 className={styles['result-name']}>{name}</h3>
                 <img

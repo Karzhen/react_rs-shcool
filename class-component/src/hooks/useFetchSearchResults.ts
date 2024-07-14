@@ -32,6 +32,7 @@ export const useFetchSearchResults = (initialSearchTerm: string) => {
 
     const fetchResults = async (term: string, url: Nullable<string> = null) => {
         setIsLoading(true);
+        // term !== '' ? setSearchTerm(term.trim()) : setSearchTerm('');
         setSearchTerm(term.trim());
         try {
             const response = await fetch(

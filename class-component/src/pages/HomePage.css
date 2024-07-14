@@ -1,0 +1,12 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+}
+
+.content > * {
+    flex: 1;
+}
