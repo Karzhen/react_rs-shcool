@@ -27,9 +27,6 @@ export type SearchInputProps = {
 };
 
 export type SearchResultsProps = {
-    // searchResults: Character[];
-    // isLoading: boolean;
-    // error: Nullable<Error>;
     searchTerm: string;
 };
 

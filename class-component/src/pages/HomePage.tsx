@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import {useNavigate, useLocation, useParams} from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import SearchInput from '../components/SearchInput/SearchInput';
 import SearchResults from '../components/SearchResults/SearchResults';
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
 import './HomePage.css';
-import Details from "./Details.tsx"; // добавьте стили для раскладки
+import Details from './Details.tsx'; // добавьте стили для раскладки
 
 const HomePage: React.FC = () => {
     const location = useLocation();

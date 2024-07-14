@@ -2,8 +2,6 @@ import React from 'react';
 import CharacterDetail from './CharacterDetail.tsx';
 import styles from './CharacterCard.module.css';
 import { CharacterCardProps } from '../../types.ts';
-// import { useFetchHomeworldName } from '../../hooks/useFetchHomeworldName.tsx';
-// import { useFetchFilmTitles } from '../../hooks/useFetchFilmTitle.tsx';
 
 const CharacterCard: React.FC<CharacterCardProps> = ({
     character,
@@ -21,9 +19,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         homeworld,
         films,
     } = character;
-
-    // const filmTitles = useFetchFilmTitles(films);
-    // const homeworldName = useFetchHomeworldName(homeworld);
 
     return (
         <div className={styles.card} onClick={onClick}>

@@ -20,7 +20,6 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
 
     const handleSearch = () => {
         const trimmedInput = input.trim();
-        // console.log(`'${trimmedInput}'`)
         setStoredSearchTerm(trimmedInput);
         onSearch(trimmedInput);
     };

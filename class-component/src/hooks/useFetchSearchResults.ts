@@ -32,7 +32,6 @@ export const useFetchSearchResults = (initialSearchTerm: string) => {
 
     const fetchResults = async (term: string, url: Nullable<string> = null) => {
         setIsLoading(true);
-        // term !== '' ? setSearchTerm(term.trim()) : setSearchTerm('');
         setSearchTerm(term.trim());
         try {
             const response = await fetch(
@@ -45,7 +44,6 @@ export const useFetchSearchResults = (initialSearchTerm: string) => {
 
             const characters = await Promise.all(
                 data.results.map(async (character: Character) => {
-                    // console.log(character)
                     const films = await fetchFilmTitles(character.films);
                     const homeworld = await fetchHomeworldName(
                         character.homeworld,
@@ -57,7 +55,6 @@ export const useFetchSearchResults = (initialSearchTerm: string) => {
             setSearchResults(characters);
             setNext(data.next);
             setPrev(data.previous);
-            // localStorage.setItem('lastSearchTerm', term.trim());
         } catch (err: unknown) {
             if (err instanceof Error) {
                 setError(err);
