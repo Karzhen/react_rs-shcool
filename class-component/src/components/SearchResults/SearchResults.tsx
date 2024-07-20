@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import CharacterCard from '../Character/CharacterCard';
 import Pagination from '../Pagination/Pagination';
 import Loader from '../Loader/Loader';
@@ -10,22 +10,39 @@ import { useFetchSearchResults } from '../../hooks/useFetchSearchResults';
 
 const SearchResults: React.FC<SearchResultsProps> = ({
     searchTerm,
+    currentPage,
     handleNextPage,
     handlePrevPage,
 }) => {
-    const { searchResults, isLoading, error, next, prev, fetchResults } =
-        useFetchSearchResults(searchTerm);
-
+    const location = useLocation();
+    // console.log(location);
+    const queryParams = new URLSearchParams(location.search);
+    // console.log(page);
+    const {
+        searchResults,
+        isLoading,
+        error,
+        next,
+        prev,
+        loadNextPage,
+        loadPrevPage,
+        fetchResults,
+    } = useFetchSearchResults(searchTerm, currentPage);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (searchTerm) {
-            fetchResults(searchTerm);
-        }
-    }, [searchTerm]);
+        fetchResults(searchTerm, currentPage).catch(error => {
+            console.error('Failed to fetch initial results:', error);
+        });
+    }, [searchTerm, currentPage]);
 
     const handleCharacterClick = (id: number) => {
         navigate(`/details/${id}`);
+    };
+
+    const extractIdFromUrl = (url) => {
+        const parts = url.split('/');
+        return parts[parts.length - 2];
     };
 
     return (
@@ -37,11 +54,15 @@ const SearchResults: React.FC<SearchResultsProps> = ({
             ) : searchResults.length > 0 ? (
                 <>
                     <div className={styles.grid}>
-                        {searchResults.map((result, index) => (
+                        {searchResults.map((result) => (
                             <CharacterCard
-                                key={index}
+                                key={extractIdFromUrl(result.url)}
                                 character={result}
-                                onClick={() => handleCharacterClick(index)}
+                                onClick={() =>
+                                    handleCharacterClick(
+                                        extractIdFromUrl(result.url),
+                                    )
+                                }
                             />
                         ))}
                     </div>
@@ -49,8 +70,8 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                         <Pagination
                             next={next}
                             prev={prev}
-                            handleNextPage={() => handleNextPage(fetchResults)}
-                            handlePrevPage={() => handlePrevPage(fetchResults)}
+                            handleNextPage={() => handleNextPage(loadNextPage)}
+                            handlePrevPage={() => handlePrevPage(loadPrevPage)}
                         />
                     )}
                 </>

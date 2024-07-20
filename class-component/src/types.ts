@@ -11,10 +11,14 @@ export type Character = {
     gender: string;
     homeworld: string;
     films: string[];
+    url: string;
+    starships: string[];
+    vehicles: string[];
 };
 
 export type CharacterCardProps = {
     character: Character;
+    onClick: () => void;
 };
 
 export type CharacterDetailProps = {
@@ -28,6 +32,12 @@ export type SearchInputProps = {
 
 export type SearchResultsProps = {
     searchTerm: string;
+    handleNextPage: (
+        fetchResults: (term: string, url?: Nullable<string>) => Promise<void>,
+    ) => void;
+    handlePrevPage: (
+        fetchResults: (term: string, url?: Nullable<string>) => Promise<void>,
+    ) => void;
 };
 
 export type Nullable<T> = T | null;
