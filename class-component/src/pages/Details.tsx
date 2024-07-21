@@ -94,9 +94,11 @@ const Details: React.FC<DetailsProps> = () => {
     }
 
     const handleCloseDetails = () => {
-        const prevPath = `${location.pathname.split('/details')[0]}${location.search}`;
-        console.log(location.search)
-        navigate(prevPath);
+        const params = new URLSearchParams(location.search);
+        const search = params.get('search') || '';
+        const page = params.get('page') || '1';
+
+        navigate(`/?search=${search}&page=${page}`);
     };
 
     return (
