@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation, useParams, Outlet } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import SearchInput from '../../components/SearchInput/SearchInput.tsx';
 import SearchResults from '../../components/SearchResults/SearchResults.tsx';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary.tsx';
@@ -31,7 +31,7 @@ const HomePage: React.FC = () => {
     };
 
     const handleNextPage = () => {
-        setCurrentPage(prevPage => {
+        setCurrentPage((prevPage) => {
             const nextPage = prevPage + 1;
             navigate(`/?search=${searchTerm.toLowerCase()}&page=${nextPage}`);
             return nextPage;
@@ -39,7 +39,7 @@ const HomePage: React.FC = () => {
     };
 
     const handlePrevPage = () => {
-        setCurrentPage(nextPage => {
+        setCurrentPage((nextPage) => {
             const prevPage = nextPage - 1;
             navigate(`/?search=${searchTerm.toLowerCase()}&page=${prevPage}`);
             return prevPage;

@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Character, Nullable } from '../types.ts';
 
-export const useFetchSearchResults = (initialSearchTerm: string, page: number = 1) => {
-    const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
+export const useFetchSearchResults = (
+    initialSearchTerm: string,
+    page: number = 1,
+) => {
+    const [searchTerm] = useState(initialSearchTerm);
     const [searchResults, setSearchResults] = useState<Character[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<Nullable<Error>>(null);
@@ -43,13 +46,13 @@ export const useFetchSearchResults = (initialSearchTerm: string, page: number = 
 
     useEffect(() => {
         if (initialSearchTerm) {
-            console.log('Search term: ', searchTerm)
+            console.log('Search term: ', searchTerm);
             const lastSearchTerm = localStorage.getItem('lastSearchTerm') || '';
-            console.log('Last search term: ', lastSearchTerm)
-            fetchResults(searchTerm, page.toString()).catch(error => {
+            console.log('Last search term: ', lastSearchTerm);
+            fetchResults(searchTerm, page.toString()).catch((error) => {
                 console.error('Failed to fetch initial results:', error);
             });
-        } else {}
+        }
     }, []);
 
     const loadNextPage = async () => {

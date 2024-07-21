@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Loader from '../components/Loader/Loader.tsx';
 import ErrorMessage from '../ErrorMessage.tsx';
@@ -55,7 +55,7 @@ const Details: React.FC<DetailsProps> = () => {
     console.log(character);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<Nullable<Error>>(null);
-    const previousPath = useRef<string | null>(null);
+    // const previousPath = useRef<string | null>(null);
 
     useEffect(() => {
         const fetchCharacter = async () => {
@@ -94,7 +94,9 @@ const Details: React.FC<DetailsProps> = () => {
     }
 
     const handleCloseDetails = () => {
-        navigate(location.pathname.split('/details')[0]);
+        const prevPath = `${location.pathname.split('/details')[0]}${location.search}`;
+        console.log(location.search)
+        navigate(prevPath);
     };
 
     return (

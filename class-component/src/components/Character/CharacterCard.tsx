@@ -16,9 +16,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         eye_color,
         birth_year,
         gender,
-        homeworld,
-        films,
-        vehicles,
     } = character;
 
     return (
@@ -46,25 +43,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             {eye_color && (
                 <CharacterDetail label="Eye Color" value={eye_color} />
             )}
-            {/*{homeworld && (*/}
-            {/*    <CharacterDetail label="Homeworld" value={homeworld} />*/}
-            {/*)}*/}
-            {/*<p>*/}
-            {/*    <strong>Films:</strong>*/}
-            {/*</p>*/}
-            {/*<ul>*/}
-            {/*    {films.map((film, index) => (*/}
-            {/*        <li key={index}>{film}</li>*/}
-            {/*    ))}*/}
-            {/*</ul>*/}
-            {/*<p>*/}
-            {/*    <strong>Vehicles:</strong>*/}
-            {/*</p>*/}
-            {/*<ul>*/}
-            {/*    {vehicles.map((vehicle, index) => (*/}
-            {/*        <li key={index}>{vehicle}</li>*/}
-            {/*    ))}*/}
-            {/*</ul>*/}
         </div>
     );
 };

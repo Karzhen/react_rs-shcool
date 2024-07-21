@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import CharacterCard from '../Character/CharacterCard';
 import Pagination from '../Pagination/Pagination';
 import Loader from '../Loader/Loader';
@@ -14,10 +14,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
     handleNextPage,
     handlePrevPage,
 }) => {
-    const location = useLocation();
-    // console.log(location);
-    const queryParams = new URLSearchParams(location.search);
-    // console.log(page);
+    // const location = useLocation();
     const {
         searchResults,
         isLoading,
@@ -31,13 +28,16 @@ const SearchResults: React.FC<SearchResultsProps> = ({
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetchResults(searchTerm, currentPage).catch(error => {
+        fetchResults(searchTerm, currentPage).catch((error) => {
             console.error('Failed to fetch initial results:', error);
         });
     }, [searchTerm, currentPage]);
 
     const handleCharacterClick = (id: number) => {
-        navigate(`/details/${id}`);
+        const queryParams = new URLSearchParams(location.search);
+        const urlQuery = queryParams.toString();
+        console.log(urlQuery);
+        navigate(`/details/${id}/?${urlQuery}`);
     };
 
     const extractIdFromUrl = (url) => {
