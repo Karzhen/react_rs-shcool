@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type Character = {
     name: string;
     height: string;
@@ -9,14 +11,33 @@ export type Character = {
     gender: string;
     homeworld: string;
     films: string[];
+    url: string;
+    starships: string[];
+    vehicles: string[];
 };
 
 export type CharacterCardProps = {
     character: Character;
+    onClick: () => void;
+};
+
+export type CharacterDetailProps = {
+    label: string;
+    value: string;
+};
+
+export type SearchInputProps = {
+    onSearch: (input: string) => void;
 };
 
 export type SearchResultsProps = {
-    results: Character[];
+    searchTerm: string;
+    handleNextPage: (
+        fetchResults: (term: string, url?: Nullable<string>) => Promise<void>,
+    ) => void;
+    handlePrevPage: (
+        fetchResults: (term: string, url?: Nullable<string>) => Promise<void>,
+    ) => void;
 };
 
 export type Nullable<T> = T | null;
@@ -40,4 +61,12 @@ export type PaginationProps = {
     prev: Nullable<string>;
     handleNextPage: () => void;
     handlePrevPage: () => void;
+};
+
+export type ErrorBoundaryProps = {
+    children: ReactNode;
+};
+
+export type ErrorBoundaryState = {
+    hasError: boolean;
 };
