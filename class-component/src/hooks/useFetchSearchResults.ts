@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Character, Nullable } from '../types.ts';
+import { fetchResultsFromApi } from '../utils/api.ts';
 
 export const useFetchSearchResults = (
     initialSearchTerm: string,
@@ -15,25 +16,13 @@ export const useFetchSearchResults = (
     const fetchResults = async (searchTerm: string, pageNumber: string) => {
         setIsLoading(true);
         try {
-            const response = await fetch(
-                `https://swapi.dev/api/people/?search=${searchTerm}&page=${pageNumber}`,
-            );
-            if (!response.ok) {
-                throw new Error('Failed to fetch data');
-            }
-            const data = await response.json();
-            const characters = await Promise.all(
-                data.results.map(async (character: Character) => {
-                    return { ...character };
-                }),
-            );
-
+            const { characters, next, prev } = await fetchResultsFromApi(searchTerm, pageNumber);
             setSearchResults(characters);
-            setNext(data.next);
-            setPrev(data.previous);
+            setNext(next);
+            setPrev(prev);
             setError(null);
         } catch (error) {
-            setError(error);
+            setError(error as Error);
             setSearchResults([]);
             setNext(null);
             setPrev(null);

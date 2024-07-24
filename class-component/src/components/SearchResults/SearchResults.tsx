@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import CharacterCard from '../Character/CharacterCard';
 import Pagination from '../Pagination/Pagination';
 import Loader from '../Loader/Loader';
@@ -7,6 +7,7 @@ import ErrorMessage from '../../ErrorMessage';
 import styles from './SearchResults.module.css';
 import { SearchResultsProps } from '../../types';
 import { useFetchSearchResults } from '../../hooks/useFetchSearchResults';
+import { useFetchResultsQuery } from '../../redux';
 
 const SearchResults: React.FC<SearchResultsProps> = ({
     searchTerm,
@@ -14,24 +15,16 @@ const SearchResults: React.FC<SearchResultsProps> = ({
     handleNextPage,
     handlePrevPage,
 }) => {
-    // const location = useLocation();
-    const {
-        searchResults,
-        isLoading,
-        error,
-        next,
-        prev,
-        loadNextPage,
-        loadPrevPage,
-        fetchResults,
-    } = useFetchSearchResults(searchTerm, currentPage);
-    const navigate = useNavigate();
+    const [page, setPage] = useState(currentPage);
 
-    useEffect(() => {
-        fetchResults(searchTerm, currentPage).catch((error) => {
-            console.error('Failed to fetch initial results:', error);
-        });
-    }, [searchTerm, currentPage]);
+    const {data = { results: [], next: null, previous: null }, isLoading, error } = useFetchResultsQuery({searchTerm, pageNumber: page});
+    console.log(data);
+    const next = data.next;
+    const prev = data.previous;
+    const searchResults = data.results;
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleCharacterClick = (id: number) => {
         const queryParams = new URLSearchParams(location.search);
@@ -44,6 +37,22 @@ const SearchResults: React.FC<SearchResultsProps> = ({
         const parts = url.split('/');
         return parts[parts.length - 2];
     };
+
+    const loadNextPage = () => {
+        if (next) {
+            setPage((prevPage) => prevPage + 1);
+        }
+    };
+
+    const loadPrevPage = () => {
+        if (prev) {
+            setPage((prevPage) => prevPage - 1);
+        }
+    };
+
+    useEffect(() => {
+        setPage(currentPage);
+    }, [currentPage]);
 
     return (
         <div className={styles.container}>

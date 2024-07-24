@@ -32,6 +32,7 @@ export type SearchInputProps = {
 
 export type SearchResultsProps = {
     searchTerm: string;
+    currentPage: number;
     handleNextPage: (
         fetchResults: (term: string, url?: Nullable<string>) => Promise<void>,
     ) => void;
@@ -69,4 +70,10 @@ export type ErrorBoundaryProps = {
 
 export type ErrorBoundaryState = {
     hasError: boolean;
+};
+
+export type ApiResponse = {
+    results: Character[];
+    next: string | null;
+    previous: string | null;
 };
