@@ -6,7 +6,6 @@ import Loader from '../Loader/Loader';
 import ErrorMessage from '../../ErrorMessage';
 import styles from './SearchResults.module.css';
 import { SearchResultsProps } from '../../types';
-import { useFetchSearchResults } from '../../hooks/useFetchSearchResults';
 import { useFetchResultsQuery } from '../../redux';
 
 const SearchResults: React.FC<SearchResultsProps> = ({

@@ -6,6 +6,8 @@ import { CharacterCardProps } from '../../types.ts';
 const CharacterCard: React.FC<CharacterCardProps> = ({
     character,
     onClick,
+    isChecked,
+    onCheckboxChange,
 }) => {
     const {
         name,
@@ -18,10 +20,21 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         gender,
     } = character;
 
+    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        event.stopPropagation(); // предотвращает срабатывание onClick на карточке
+        onCheckboxChange(event);
+    };
+
     return (
         <div className={styles.card} onClick={onClick}>
             <div className={styles['card-header']}>
                 <h3 className={styles['result-name']}>{name}</h3>
+                <input 
+                    type="checkbox" 
+                    checked={isChecked} 
+                    onChange={handleCheckboxChange} 
+                    className={styles.checkbox} 
+                />
                 {/*<img*/}
                 {/*    src={`/images/characters/${name.toLowerCase().replace(/ /g, '_')}.png`}*/}
                 {/*    alt={name}*/}
