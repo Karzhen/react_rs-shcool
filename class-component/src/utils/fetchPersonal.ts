@@ -1,4 +1,6 @@
-export const fetchFilmTitles = async (filmUrls: string[]): Promise<string[]> => {
+export const fetchFilmTitles = async (
+    filmUrls: string[],
+): Promise<string[]> => {
     const fetchedTitles = await Promise.all(
         filmUrls.map(async (url) => {
             const response = await fetch(url);
@@ -20,7 +22,9 @@ export const fetchHomeworldName = async (url: string): Promise<string> => {
     return data.name;
 };
 
-export const fetchVehicleNames = async (vehicleUrls: string[]): Promise<string[]> => {
+export const fetchVehicleNames = async (
+    vehicleUrls: string[],
+): Promise<string[]> => {
     const vehicleNames = await Promise.all(
         vehicleUrls.map(async (url) => {
             const response = await fetch(url);

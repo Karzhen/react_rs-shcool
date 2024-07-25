@@ -15,6 +15,17 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /*transition: all 0.5s;*/
+}
+
+:root {
+    --primary: #3b82f6;
+    --secondary: #ff6f61;
+    --header: #ffe066;
+    --text: #000000;
+    --background: #d1d5db;
+    --border: #a3e635;
+    --main-bg: url('../public/images/photorealistic-light-blur-background-for-star-wars.png');
 }
 
 * {

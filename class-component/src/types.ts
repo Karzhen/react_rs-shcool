@@ -22,8 +22,8 @@ export type CharacterCardProps = {
 };
 
 export type CharacterDetailProps = {
-    label: string;
-    value: string;
+    label?: string;
+    value?: string;
 };
 
 export type SearchInputProps = {

@@ -20,42 +20,46 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         gender,
     } = character;
 
-    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        event.stopPropagation(); // предотвращает срабатывание onClick на карточке
+    const handleCheckboxChange = (
+        event: React.ChangeEvent<HTMLInputElement>,
+    ) => {
+        event.stopPropagation();
         onCheckboxChange(event);
     };
 
     return (
-        <div className={styles.card} onClick={onClick}>
-            <div className={styles['card-header']}>
-                <h3 className={styles['result-name']}>{name}</h3>
-                <input 
-                    type="checkbox" 
-                    checked={isChecked} 
-                    onChange={handleCheckboxChange} 
-                    className={styles.checkbox} 
-                />
-                {/*<img*/}
-                {/*    src={`/images/characters/${name.toLowerCase().replace(/ /g, '_')}.png`}*/}
-                {/*    alt={name}*/}
-                {/*    className={styles['character-image']}*/}
-                {/*/>*/}
+        <div className={styles.container}>
+            <div className={styles.card} onClick={onClick}>
+                <div className={styles['card-header']}>
+                    <h3 className={styles['result-name']}>{name}</h3>
+                    {/*<img*/}
+                    {/*    src={`/images/characters/${name.toLowerCase().replace(/ /g, '_')}.png`}*/}
+                    {/*    alt={name}*/}
+                    {/*    className={styles['character-image']}*/}
+                    {/*/>*/}
+                </div>
+                {height && <CharacterDetail label="Height" value={height} />}
+                {mass && <CharacterDetail label="Mass" value={mass} />}
+                {gender && <CharacterDetail label="Gender" value={gender} />}
+                {birth_year && (
+                    <CharacterDetail label="Birth Year" value={birth_year} />
+                )}
+                {skin_color && (
+                    <CharacterDetail label="Skin Color" value={skin_color} />
+                )}
+                {hair_color && (
+                    <CharacterDetail label="Hair Color" value={hair_color} />
+                )}
+                {eye_color && (
+                    <CharacterDetail label="Eye Color" value={eye_color} />
+                )}
             </div>
-            {height && <CharacterDetail label="Height" value={height} />}
-            {mass && <CharacterDetail label="Mass" value={mass} />}
-            {gender && <CharacterDetail label="Gender" value={gender} />}
-            {birth_year && (
-                <CharacterDetail label="Birth Year" value={birth_year} />
-            )}
-            {skin_color && (
-                <CharacterDetail label="Skin Color" value={skin_color} />
-            )}
-            {hair_color && (
-                <CharacterDetail label="Hair Color" value={hair_color} />
-            )}
-            {eye_color && (
-                <CharacterDetail label="Eye Color" value={eye_color} />
-            )}
+            <input
+                type="checkbox"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+                className={styles.checkbox}
+            />
         </div>
     );
 };

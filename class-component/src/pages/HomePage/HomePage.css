@@ -3,6 +3,20 @@
     flex-direction: column;
 }
 
+.toggle-theme-button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-theme-button:hover {
+    background-color: var(--secondary);
+}
+
 .content {
     display: flex;
 }

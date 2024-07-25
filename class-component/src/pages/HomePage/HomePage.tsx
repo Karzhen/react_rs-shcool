@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import SearchInput from '../../components/SearchInput/SearchInput.tsx';
 import SearchResults from '../../components/SearchResults/SearchResults.tsx';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary.tsx';
 import './HomePage.css';
-import Details from '../Details.tsx';
+import Details from '../Details/Details.tsx';
 import useLocalStorage from '../../hooks/useLocalStorage.ts';
+import { useTheme } from '../../ThemeContext.tsx';
 
 const HomePage: React.FC = () => {
     const location = useLocation();
@@ -15,14 +16,14 @@ const HomePage: React.FC = () => {
     const searchParams = new URLSearchParams(location.search);
     const search = searchParams.get('search') || '';
     const page = parseInt(searchParams.get('page'), 10) || '1';
-    // console.log(search);
-    // console.log(Number(page));
 
     const [searchTerm, setSearchTerm] = useLocalStorage(
         'lastSearchTerm',
         search,
     );
     const [currentPage, setCurrentPage] = useState(Number(page));
+    const { theme, themeColors, setTheme } = useTheme();
+    console.log(themeColors);
 
     const handleSearch = (term: string) => {
         setSearchTerm(term);
@@ -66,7 +67,13 @@ const HomePage: React.FC = () => {
     }, [search, searchTerm, setSearchTerm]);
 
     return (
-        <div className="home-page">
+        <div
+            className="home-page"
+            style={{ ...(themeColors as CSSProperties) }}
+        >
+            <button className="toggle-theme-button" onClick={setTheme}>
+                Switch to {theme === 'light' ? 'dark' : 'light'} mode
+            </button>
             <ErrorBoundary>
                 <SearchInput onSearch={handleSearch} />
                 <div className="content">

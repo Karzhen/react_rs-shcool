@@ -1,8 +1,12 @@
+.container {
+    position: relative;
+}
+
 .card {
     padding: 15px;
-    border: 1px solid #ffcc00;
+    border: 1px solid var(--border);
     border-radius: 10px;
-    background-color: #222;
+    background-color: var(--background);
     /*color: #fff;*/
     display: flex;
     flex-direction: column;
@@ -22,12 +26,58 @@
 
 .result-name {
     align-self: center;
-    color: #ffcc00;
+    color: var(--header);
 }
 
-.character-image {
-    width: 50%;
-    border: 1px solid #ffcc00;
-    border-radius: 10px;
-    align-self: end;
+.characterDetail {
+    color: var(--text);
+}
+
+/*.character-image {*/
+/*    width: 50%;*/
+/*    border: 1px solid #ffcc00;*/
+/*    border-radius: 10px;*/
+/*    align-self: end;*/
+/*}*/
+
+.checkbox {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background-color: var(--background);
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition:
+        background-color 0.3s,
+        border-color 0.3s;
+}
+
+.checkbox:checked {
+    background-color: var(--primary);
+    border-color: var(--secondary);
+}
+
+.checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--secondary);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.checkbox:hover {
+    border-color: var(--secondary);
+}
+
+.checkbox:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 5px var(--secondary);
 }

@@ -16,7 +16,10 @@ export const useFetchSearchResults = (
     const fetchResults = async (searchTerm: string, pageNumber: string) => {
         setIsLoading(true);
         try {
-            const { characters, next, prev } = await fetchResultsFromApi(searchTerm, pageNumber);
+            const { characters, next, prev } = await fetchResultsFromApi(
+                searchTerm,
+                pageNumber,
+            );
             setSearchResults(characters);
             setNext(next);
             setPrev(prev);
