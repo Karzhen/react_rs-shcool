@@ -37,3 +37,19 @@ export const fetchVehicleNames = async (
     );
     return vehicleNames;
 };
+
+export const fetchStarshipNames = async (
+    starshipUrls: string[],
+): Promise<string[]> => {
+    const starshipNames = await Promise.all(
+        starshipUrls.map(async (url) => {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch starship data from ${url}`);
+            }
+            const data = await response.json();
+            return data.name;
+        }),
+    );
+    return starshipNames;
+};

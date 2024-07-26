@@ -2,12 +2,23 @@ import React from 'react';
 import CharacterDetail from './CharacterDetail.tsx';
 import styles from './CharacterCard.module.css';
 import { CharacterCardProps } from '../../types.ts';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../redux';
+import {
+    addCharacter,
+    removeCharacter,
+} from '../../redux/selectedCharactersSlice';
+import extractIdFromUrl from '../../utils/extractIdFromUrl.ts';
+import {
+    fetchFilmTitles,
+    fetchStarshipNames,
+    fetchVehicleNames,
+} from '../../utils/fetchPersonal.ts';
+import { fetchHomeworldName } from '../../utils/apiUtils.ts';
 
 const CharacterCard: React.FC<CharacterCardProps> = ({
     character,
     onClick,
-    isChecked,
-    onCheckboxChange,
 }) => {
     const {
         name,
@@ -20,11 +31,31 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         gender,
     } = character;
 
-    const handleCheckboxChange = (
+    const ID = extractIdFromUrl(character.url);
+
+    const dispatch = useDispatch();
+    const selectedCharacters = useSelector(
+        (state: RootState) => state.selectedCharacters.selected,
+    );
+    const isChecked = selectedCharacters.some((c) => c.id === ID);
+
+    const handleCheckboxChange = async (
         event: React.ChangeEvent<HTMLInputElement>,
     ) => {
         event.stopPropagation();
-        onCheckboxChange(event);
+        if (event.target.checked) {
+            const enrichedCharacter = {
+                ...character,
+                id: ID,
+                homeworld: await fetchHomeworldName(character.homeworld),
+                films: await fetchFilmTitles(character.films),
+                vehicles: await fetchVehicleNames(character.vehicles),
+                starships: await fetchStarshipNames(character.starships),
+            };
+            dispatch(addCharacter(enrichedCharacter));
+        } else {
+            dispatch(removeCharacter(ID));
+        }
     };
 
     return (

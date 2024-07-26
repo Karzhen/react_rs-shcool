@@ -1,12 +1,12 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import { useNavigate, useLocation, useParams, Outlet } from 'react-router-dom';
 import SearchInput from '../../components/SearchInput/SearchInput.tsx';
 import SearchResults from '../../components/SearchResults/SearchResults.tsx';
-import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary.tsx';
 import './HomePage.css';
-import Details from '../Details/Details.tsx';
+// import Details from '../Details/Details.tsx';
 import useLocalStorage from '../../hooks/useLocalStorage.ts';
 import { useTheme } from '../../ThemeContext.tsx';
+import Dropdown from '../../components/DropDown/DropDown.tsx';
 
 const HomePage: React.FC = () => {
     const location = useLocation();
@@ -70,10 +70,8 @@ const HomePage: React.FC = () => {
             className="home-page"
             style={{ ...(themeColors as CSSProperties) }}
         >
-            {/*<button className="toggle-theme-button" onClick={setTheme}>*/}
-            {/*    Switch to {theme === 'light' ? 'dark' : 'light'} mode*/}
-            {/*</button>*/}
             <SearchInput onSearch={handleSearch} />
+            <Dropdown />
             <div className="content">
                 <SearchResults
                     searchTerm={searchTerm}
@@ -82,7 +80,7 @@ const HomePage: React.FC = () => {
                     handlePrevPage={handlePrevPage}
                 />
                 {/*{id && <Details onClose={handleCloseDetails} />}*/}
-                {id && <Details />}
+                {id && <Outlet />}
             </div>
         </div>
     );

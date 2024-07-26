@@ -7,6 +7,7 @@ import ErrorMessage from '../../ErrorMessage';
 import styles from './SearchResults.module.css';
 import { SearchResultsProps } from '../../types';
 import { useFetchResultsQuery } from '../../redux';
+import extractIdFromUrl from '../../utils/extractIdFromUrl.ts';
 
 const SearchResults: React.FC<SearchResultsProps> = ({
     searchTerm,
@@ -36,11 +37,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({
         navigate(`/details/${id}/?${urlQuery}`);
     };
 
-    const extractIdFromUrl = (url) => {
-        const parts = url.split('/');
-        return parts[parts.length - 2];
-    };
-
     const loadNextPage = () => {
         if (next) {
             setPage((prevPage) => prevPage + 1);
@@ -58,9 +54,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
     }, [currentPage]);
 
     return (
-        <div
-            className={styles.container}
-        >
+        <div className={styles.container}>
             {isLoading ? (
                 <Loader />
             ) : error ? (

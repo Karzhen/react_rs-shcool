@@ -27,6 +27,7 @@
     --border: #a3e635;
     --main-bg: url('../public/images/photorealistic-light-blur-background-for-star-wars.png');
     --details-bg: url('../public/images/details-white-background.png');
+    --transparent: rgba(255, 255, 255, 0.5);
 }
 
 * {

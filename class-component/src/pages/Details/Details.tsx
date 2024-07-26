@@ -7,6 +7,7 @@ import { Character, Nullable } from '../../types.ts';
 import {
     fetchFilmTitles,
     fetchHomeworldName,
+    fetchStarshipNames,
     fetchVehicleNames,
 } from '../../utils/fetchPersonal.ts';
 import { CharacterInfo } from './CharacterInfo.tsx';
@@ -33,6 +34,7 @@ const Details: React.FC = () => {
                 data.homeworld = await fetchHomeworldName(data.homeworld);
                 data.films = await fetchFilmTitles(data.films);
                 data.vehicles = await fetchVehicleNames(data.vehicles);
+                data.starships = await fetchStarshipNames(data.starships);
 
                 setCharacter(data);
             } catch (err: unknown) {

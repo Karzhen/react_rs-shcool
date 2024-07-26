@@ -16,6 +16,10 @@ export type Character = {
     vehicles: string[];
 };
 
+export type StateCharacter = Character & {
+    id: number;
+};
+
 export type CharacterCardProps = {
     character: Character;
     onClick: () => void;

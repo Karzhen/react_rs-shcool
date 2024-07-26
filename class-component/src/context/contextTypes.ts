@@ -33,6 +33,7 @@ export type ThemeColors = {
     '--border': Color;
     '--main-bg': string;
     '--details-bg': string;
+    '--transparent': string;
 };
 
 export type ThemeContextProps = {
@@ -52,6 +53,7 @@ export const THEMES: Record<Theme, ThemeColors> = {
         '--main-bg': 'url(../../../public/images/white-background.png)',
         '--details-bg':
             'url(../../../public/images/details-white-background.png)',
+        '--transparent': 'rgba(255, 255, 255, 0.3)',
     },
     dark: {
         '--primary': DarkSideColor.BLUE,
@@ -63,5 +65,6 @@ export const THEMES: Record<Theme, ThemeColors> = {
         '--main-bg': 'url(../../../public/images/black-background.png)',
         '--details-bg':
             'url(../../../public/images/details-black-background.png)',
+        '--transparent': 'rgba(0, 0, 0, 0.5)',
     },
 };

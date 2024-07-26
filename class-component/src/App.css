@@ -4,11 +4,12 @@
 }
 
 body {
-    /*background-color: #000936;*/
     background-image: url('../public/images/photorealistic-background-for-star-wars-style-webs.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 body * {
-    /*color: #ffcc00;*/
     font-family: 'Star Jedi', Arial, sans-serif;
 }
