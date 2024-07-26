@@ -1,12 +1,7 @@
-:root {
-    --background-image: url('../../../public/images/photorealistic-dark-blur-background-for-star-wars.png');
-}
-
 .container {
-    height: 100%;
+    max-width: 60%;
     margin: 20px 10px;
     padding: 20px;
-    /*border: 2px solid #ffcc00;*/
     border: 2px solid var(--border);
     border-radius: 5px;
     background-image: var(--main-bg);
@@ -16,7 +11,8 @@
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 20px;
 }

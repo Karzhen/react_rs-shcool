@@ -32,6 +32,7 @@ export type ThemeColors = {
     '--background': Color;
     '--border': Color;
     '--main-bg': string;
+    '--details-bg': string;
 };
 
 export type ThemeContextProps = {
@@ -44,12 +45,13 @@ export const THEMES: Record<Theme, ThemeColors> = {
     light: {
         '--primary': LightSideColor.GREEN,
         '--secondary': LightSideColor.RED,
-        '--header': LightSideColor.YELLOW,
+        '--header': LightSideColor.RED,
         '--text': LightSideColor.BLACK,
         '--background': LightSideColor.GRAY,
         '--border': LightSideColor.BLUE,
-        '--main-bg':
-            'url(../../../public/images/photorealistic-light-blur-background-for-star-wars.png)',
+        '--main-bg': 'url(../../../public/images/white-background.png)',
+        '--details-bg':
+            'url(../../../public/images/details-white-background.png)',
     },
     dark: {
         '--primary': DarkSideColor.BLUE,
@@ -58,7 +60,8 @@ export const THEMES: Record<Theme, ThemeColors> = {
         '--text': DarkSideColor.WHITE,
         '--background': DarkSideColor.BLACK,
         '--border': DarkSideColor.GREEN,
-        '--main-bg':
-            'url(../../../public/images/photorealistic-dark-blur-background-for-star-wars.png)',
+        '--main-bg': 'url(../../../public/images/black-background.png)',
+        '--details-bg':
+            'url(../../../public/images/details-black-background.png)',
     },
 };

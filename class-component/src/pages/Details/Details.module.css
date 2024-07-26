@@ -1,16 +1,26 @@
-.content {
-    display: flex;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.details {
+.container {
     margin: 20px 10px;
     padding: 20px;
     border: 2px solid var(--border);
     border-radius: 5px;
-    background-color: var(--background);
+    background-image: var(--details-bg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-grow: 1;
 }
 
-.container {
+/*.content {*/
+/*    display: flex;*/
+/*}*/
+
+.character {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,7 +40,7 @@
     border: 2px solid var(--border);
 }
 
-.details button {
+.container button {
     background-color: var(--primary);
     color: var(--text);
     border: none;
@@ -39,6 +49,6 @@
     cursor: pointer;
 }
 
-.details button:hover {
+.container button:hover {
     background-color: var(--secondary);
 }

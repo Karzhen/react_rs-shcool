@@ -58,11 +58,8 @@ const SearchResults: React.FC<SearchResultsProps> = ({
     }, [currentPage]);
 
     return (
-        // <div className={styles.container}>
-        // Передавать контекст в themeChanger
         <div
             className={styles.container}
-            // style={{ backgroundImage: themeChanger('light') }}
         >
             {isLoading ? (
                 <Loader />

@@ -6,7 +6,7 @@ import CharacterDetail from '../../components/Character/CharacterDetail.tsx';
 export const CharacterInfo: React.FC<{ character: Character }> = ({
     character,
 }) => (
-    <div className={styles.container}>
+    <div className={styles.character}>
         <div>
             <h1 className={styles['result-name']}>{character.name}</h1>
             <CharacterDetail label="Height" value={character.height} />

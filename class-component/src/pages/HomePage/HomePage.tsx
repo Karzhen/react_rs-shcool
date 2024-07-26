@@ -22,8 +22,7 @@ const HomePage: React.FC = () => {
         search,
     );
     const [currentPage, setCurrentPage] = useState(Number(page));
-    const { theme, themeColors, setTheme } = useTheme();
-    console.log(themeColors);
+    const { themeColors } = useTheme();
 
     const handleSearch = (term: string) => {
         setSearchTerm(term);
@@ -71,22 +70,20 @@ const HomePage: React.FC = () => {
             className="home-page"
             style={{ ...(themeColors as CSSProperties) }}
         >
-            <button className="toggle-theme-button" onClick={setTheme}>
-                Switch to {theme === 'light' ? 'dark' : 'light'} mode
-            </button>
-            <ErrorBoundary>
-                <SearchInput onSearch={handleSearch} />
-                <div className="content">
-                    <SearchResults
-                        searchTerm={searchTerm}
-                        currentPage={currentPage}
-                        handleNextPage={handleNextPage}
-                        handlePrevPage={handlePrevPage}
-                    />
-                    {/*{id && <Details onClose={handleCloseDetails} />}*/}
-                    {id && <Details />}
-                </div>
-            </ErrorBoundary>
+            {/*<button className="toggle-theme-button" onClick={setTheme}>*/}
+            {/*    Switch to {theme === 'light' ? 'dark' : 'light'} mode*/}
+            {/*</button>*/}
+            <SearchInput onSearch={handleSearch} />
+            <div className="content">
+                <SearchResults
+                    searchTerm={searchTerm}
+                    currentPage={currentPage}
+                    handleNextPage={handleNextPage}
+                    handlePrevPage={handlePrevPage}
+                />
+                {/*{id && <Details onClose={handleCloseDetails} />}*/}
+                {id && <Details />}
+            </div>
         </div>
     );
 };

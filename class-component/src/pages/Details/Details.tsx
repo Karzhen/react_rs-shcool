@@ -64,7 +64,7 @@ const Details: React.FC = () => {
     };
 
     return (
-        <div className={styles.details}>
+        <div className={styles.container}>
             <button onClick={handleCloseDetails}>Close</button>
             {character && <CharacterInfo character={character} />}
         </div>
