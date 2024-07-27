@@ -23,10 +23,10 @@ const selectedCharactersSlice = createSlice({
                 state.selected.push(action.payload);
             }
         },
-        removeCharacter: (state, action: PayloadAction<number>) => {
+        removeCharacter: (state, action: PayloadAction<string>) => {
             console.log('Удаление персонажа:', action.payload);
             state.selected = state.selected.filter(
-                (character) => character.id !== action.payload,
+                (character) => character.id !== action.payload.toString(),
             );
         },
         clearCharacters: (state) => {

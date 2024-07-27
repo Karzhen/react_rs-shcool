@@ -17,7 +17,7 @@ export type Character = {
 };
 
 export type StateCharacter = Character & {
-    id: number;
+    id: string;
 };
 
 export type CharacterCardProps = {

@@ -14,7 +14,9 @@
     "husky:pre-commit": "git hook run pre-commit",
     "husky:pre-push": "git hook run pre-push",
     "prepare": "cd .. && husky class-component/.husky",
-    "test": ""
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest watch"
   },
   "husky": {
     "hooks": {
@@ -39,9 +41,11 @@
     "@types/papaparse": "^5.3.14",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@types/testing-library__jest-dom": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
     "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/coverage-v8": "^2.0.4",
     "@vitest/expect": "^2.0.4",
     "eslint": "^8.57.0",
     "eslint-import-resolver-typescript": "^3.6.1",

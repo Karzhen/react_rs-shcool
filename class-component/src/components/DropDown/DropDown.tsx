@@ -18,13 +18,15 @@ const Dropdown: React.FC = () => {
 
     const handleLoad = () => {
         const csv = Papa.unparse(selectedCharacters);
+        console.log(selectedCharacters)
+        console.log(csv)
         const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
 
         const date = new Date();
         const formattedDate = date
             .toISOString()
             .replace(/:/g, '-')
-            .replace(/\.\d{3}Z$/, ''); // заменяем двоеточия и удаляем миллисекунды и 'Z'
+            .replace(/\.\d{3}Z$/, '');
         const fileName = `${selectedCharacters.length}_characters_${formattedDate}.csv`;
 
         saveAs(blob, fileName);

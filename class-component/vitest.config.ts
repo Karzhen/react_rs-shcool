@@ -1,10 +1,15 @@
-import { mergeConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
-import viteConfig from './vite.config';
+import react from '@vitejs/plugin-react';
 
-export default mergeConfig(viteConfig, defineConfig({
+export default defineConfig({
+    plugins: [react()],
     test: {
+        globals: true,
         environment: 'jsdom',
-        setupFiles: './test/setup.ts'
-    }
-}))
+        coverage: {
+            provider: 'v8',
+            reporter: ['text', 'lcov'],
+        },
+        setupFiles: './src/setupTests.ts',
+    },
+});

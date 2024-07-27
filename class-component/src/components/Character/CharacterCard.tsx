@@ -31,7 +31,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         gender,
     } = character;
 
-    const ID = extractIdFromUrl(character.url);
+    const ID: string = extractIdFromUrl(character.url);
 
     const dispatch = useDispatch();
     const selectedCharacters = useSelector(
@@ -63,11 +63,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             <div className={styles.card} onClick={onClick}>
                 <div className={styles['card-header']}>
                     <h3 className={styles['result-name']}>{name}</h3>
-                    {/*<img*/}
-                    {/*    src={`/images/characters/${name.toLowerCase().replace(/ /g, '_')}.png`}*/}
-                    {/*    alt={name}*/}
-                    {/*    className={styles['character-image']}*/}
-                    {/*/>*/}
                 </div>
                 {height && <CharacterDetail label="Height" value={height} />}
                 {mass && <CharacterDetail label="Mass" value={mass} />}
