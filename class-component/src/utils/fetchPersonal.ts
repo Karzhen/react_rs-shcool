@@ -11,12 +11,10 @@ export const fetchFilmTitles = async (
             return data.title;
         }),
     );
-    console.log(fetchedTitles);
     return fetchedTitles;
 };
 
 export const fetchHomeworldName = async (url: string): Promise<string> => {
-    console.log(url);
     const response = await fetch(url);
     const data = await response.json();
     return data.name;

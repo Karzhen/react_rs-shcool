@@ -18,8 +18,8 @@ const Dropdown: React.FC = () => {
 
     const handleLoad = () => {
         const csv = Papa.unparse(selectedCharacters);
-        console.log(selectedCharacters)
-        console.log(csv)
+        console.log(selectedCharacters);
+        console.log(csv);
         const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
 
         const date = new Date();

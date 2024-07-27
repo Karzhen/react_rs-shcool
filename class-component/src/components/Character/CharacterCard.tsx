@@ -17,9 +17,9 @@ import {
 import { fetchHomeworldName } from '../../utils/apiUtils.ts';
 
 const CharacterCard: React.FC<CharacterCardProps> = ({
-    character,
-    onClick,
-}) => {
+                                                         character,
+                                                         onClick,
+                                                     }) => {
     const {
         name,
         height,

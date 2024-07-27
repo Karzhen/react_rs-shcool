@@ -8,6 +8,10 @@ describe('NotFound Component', () => {
     test('renders 404 message', () => {
         render(<NotFound />);
         expect(screen.getByText('404 - Page Not Found')).toBeInTheDocument();
-        expect(screen.getByText('Sorry, the page you are looking for does not exist.')).toBeInTheDocument();
+        expect(
+            screen.getByText(
+                'Sorry, the page you are looking for does not exist.',
+            ),
+        ).toBeInTheDocument();
     });
 });

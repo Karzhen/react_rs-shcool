@@ -6,7 +6,7 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ label, value }) => {
     const Element = label ? 'p' : 'li';
 
     return (
-        <Element className={styles.characterDetail}>
+        <Element className={styles.characterDetail} data-testid="description-element">
             {label && <strong>{label}:</strong>} {value || ''}
         </Element>
     );
