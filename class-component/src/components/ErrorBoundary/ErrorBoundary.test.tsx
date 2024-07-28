@@ -10,7 +10,7 @@ describe('ErrorBoundary Component', () => {
         render(
             <ErrorBoundary>
                 <div data-testid="child">Child Component</div>
-            </ErrorBoundary>
+            </ErrorBoundary>,
         );
 
         const childElement = screen.getByTestId('child');
@@ -21,7 +21,7 @@ describe('ErrorBoundary Component', () => {
         render(
             <ErrorBoundary>
                 <div data-testid="child">Child Component</div>
-            </ErrorBoundary>
+            </ErrorBoundary>,
         );
 
         const triggerButton = screen.getByText('Trigger Error');
