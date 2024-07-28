@@ -3,16 +3,15 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, test, expect, vi } from 'vitest';
 import CharacterCard from './CharacterCard';
-import CharacterDetail from './CharacterDetail';
-import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux';
-import { addCharacter, removeCharacter } from '../../redux/selectedCharactersSlice';
-import { fetchHomeworldName, fetchFilmTitles, fetchStarshipNames, fetchVehicleNames } from '../../utils/fetchPersonal';
+import { removeCharacter } from '../../redux/selectedCharactersSlice';
 
 // Мокирование функций
 vi.mock('../../utils/fetchPersonal', () => ({
     fetchHomeworldName: vi.fn(() => Promise.resolve('Tatooine')),
-    fetchFilmTitles: vi.fn(() => Promise.resolve(['A New Hope', 'The Empire Strikes Back'])),
+    fetchFilmTitles: vi.fn(() =>
+        Promise.resolve(['A New Hope', 'The Empire Strikes Back']),
+    ),
     fetchStarshipNames: vi.fn(() => Promise.resolve(['TIE Fighter'])),
     fetchVehicleNames: vi.fn(() => Promise.resolve([])),
 }));
@@ -21,11 +20,12 @@ vi.mock('../../utils/fetchPersonal', () => ({
 const mockDispatch = vi.fn();
 vi.mock('react-redux', () => ({
     useDispatch: () => mockDispatch,
-    useSelector: (selector: (state: RootState) => any) => selector({
-        selectedCharacters: {
-            selected: [{ id: '4', name: 'Darth Vader' }],
-        },
-    }),
+    useSelector: (selector: (state: RootState) => RootState) =>
+        selector({
+            selectedCharacters: {
+                selected: [{ id: '4', name: 'Darth Vader' }],
+            },
+        }),
 }));
 
 describe('CharacterCard Component', () => {
@@ -41,15 +41,13 @@ describe('CharacterCard Component', () => {
         url: 'https://swapi.dev/api/people/4/',
         homeworld: 'https://swapi.dev/api/planets/1/',
         films: [
-            "https://swapi.dev/api/films/1/",
-            "https://swapi.dev/api/films/2/",
-            "https://swapi.dev/api/films/3/",
-            "https://swapi.dev/api/films/6/"
+            'https://swapi.dev/api/films/1/',
+            'https://swapi.dev/api/films/2/',
+            'https://swapi.dev/api/films/3/',
+            'https://swapi.dev/api/films/6/',
         ],
         vehicles: [],
-        starships: [
-            "https://swapi.dev/api/starships/13/"
-        ],
+        starships: ['https://swapi.dev/api/starships/13/'],
     };
 
     test('renders character details correctly and interacts as expected', async () => {
