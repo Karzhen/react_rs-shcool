@@ -1,4 +1,3 @@
-// selectedCharactersSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateCharacter } from '../types';
 

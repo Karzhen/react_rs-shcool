@@ -33,13 +33,6 @@
     color: var(--text);
 }
 
-/*.character-image {*/
-/*    width: 50%;*/
-/*    border: 1px solid #ffcc00;*/
-/*    border-radius: 10px;*/
-/*    align-self: end;*/
-/*}*/
-
 .checkbox {
     position: absolute;
     top: 5%;

@@ -13,8 +13,8 @@ import {
     fetchFilmTitles,
     fetchStarshipNames,
     fetchVehicleNames,
+    fetchHomeworldName,
 } from '../../utils/fetchPersonal.ts';
-import { fetchHomeworldName } from '../../utils/apiUtils.ts';
 
 const CharacterCard: React.FC<CharacterCardProps> = ({
     character,

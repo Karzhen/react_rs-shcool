@@ -17,10 +17,6 @@
     flex: 3;
 }
 
-/*.content {*/
-/*    display: flex;*/
-/*}*/
-
 .character {
     display: flex;
     flex-direction: row;
