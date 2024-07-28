@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Star Jedi';
+    src: url('/fonts/starjedi_cyrillic.otf') format('opentype');
+}
+
+body {
+    background-image: url('../../../public/images/photorealistic-background-for-star-wars-style-webs.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body * {
+    font-family: 'Star Jedi', Arial, sans-serif;
+}
