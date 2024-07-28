@@ -52,7 +52,7 @@ describe('Header Component', () => {
         const buttonElement = screen.getByText('Switch to dark mode');
         expect(buttonElement).toBeInTheDocument();
 
-        // Simulate theme switch
+        // Имитация переключения тем
         fireEvent.click(buttonElement);
         rerender(<Header />);
     });

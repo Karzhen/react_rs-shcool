@@ -6,7 +6,6 @@ import reducer, {
 } from './selectedCharactersSlice';
 import { StateCharacter } from '../types';
 
-// Mock character for testing
 const mockCharacter: StateCharacter = {
     id: '4',
     name: 'Darth Vader',

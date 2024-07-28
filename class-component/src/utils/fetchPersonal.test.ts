@@ -6,7 +6,7 @@ import {
     fetchStarshipNames,
 } from './fetchPersonal';
 
-// Mock the global fetch function
+// Мокирование глобальной функции fetch
 global.fetch = vi.fn();
 
 describe('API functions', () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, test, expect } from 'vitest';
-import { ThemeProvider, useTheme, ThemeContext } from './ThemeContext';
+import { ThemeProvider, useTheme } from './ThemeContext';
 import { THEMES } from './context/contextTypes.ts';
 
 const TestComponent = () => {
@@ -41,20 +41,20 @@ describe('ThemeContext', () => {
 
         const toggleButton = screen.getByTestId('toggle-theme-button');
 
-        // Initial theme is light
+        // Первоначальная тема - светлая
         expect(screen.getByTestId('theme').textContent).toBe('light');
         expect(screen.getByTestId('theme-color').textContent).toBe(
             THEMES.light['--primary'],
         );
 
-        // Toggle theme to dark
+        // Переключение темы на темную
         fireEvent.click(toggleButton);
         expect(screen.getByTestId('theme').textContent).toBe('dark');
         expect(screen.getByTestId('theme-color').textContent).toBe(
             THEMES.dark['--primary'],
         );
 
-        // Toggle theme back to light
+        // Переключение темы обратно на светлую
         fireEvent.click(toggleButton);
         expect(screen.getByTestId('theme').textContent).toBe('light');
         expect(screen.getByTestId('theme-color').textContent).toBe(

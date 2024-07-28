@@ -1,15 +1,9 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, test, expect, vi } from 'vitest';
-import { useLocation, useNavigate } from 'react-router-dom';
 import SearchResults from './SearchResults';
-import CharacterCard from '../Character/CharacterCard';
-import Pagination from '../Pagination/Pagination';
-import Loader from '../Loader/Loader';
-import ErrorMessage from '../../ErrorMessage';
 import { useFetchResultsQuery } from '../../redux';
-import extractIdFromUrl from '../../utils/extractIdFromUrl';
 
 vi.mock('react-router-dom', () => ({
     useNavigate: vi.fn(),

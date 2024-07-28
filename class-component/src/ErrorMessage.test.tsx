@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, test, expect } from 'vitest';
 import ErrorMessage from './ErrorMessage';
-import { ErrorMessageProps } from './types';
 
 describe('ErrorMessage Component', () => {
     test('returns null if no error is provided', () => {

@@ -30,7 +30,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
     const navigate = useNavigate();
     const location = useLocation();
 
-    const handleCharacterClick = (id: number) => {
+    const handleCharacterClick = (id: string) => {
         const queryParams = new URLSearchParams(location.search);
         const urlQuery = queryParams.toString();
         console.log(urlQuery);
