@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Star Jedi';
+    src: url('/fonts/star-wars.otf') format('opentype');
+}
+
+:root {
+    font-family: 'Star Jedi', Arial, sans-serif;
+    line-height: 1.5;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.67);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    --primary: #3b82f6;
+    --secondary: #ff6f61;
+    --header: #ffe066;
+    --text: #000000;
+    --background: #d1d5db;
+    --border: #a3e635;
+    --main-bg: url('../public/images/photorealistic-light-blur-background-for-star-wars.png');
+    --details-bg: url('../public/images/details-white-background.png');
+    --transparent: rgba(255, 255, 255, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
