@@ -1,9 +1,9 @@
 import { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
-import { store } from '../redux/store';
-import { ThemeProvider } from '../ThemeContext';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
+import { store } from '@/redux/store';
+import { ThemeProvider } from '@/ThemeContext';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
 import '../index.css';
 
 function MyApp({ Component, pageProps }: AppProps) {

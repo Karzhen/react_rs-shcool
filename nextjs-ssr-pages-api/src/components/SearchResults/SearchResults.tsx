@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import CharacterCard from '../Character/CharacterCard';
 import Pagination from '../Pagination/Pagination';
 import Loader from '../Loader/Loader';
-import ErrorMessage from '../../ErrorMessage';
+// import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import styles from './SearchResults.module.css';
-import { SearchResultsProps } from '../../types';
-import { useFetchResultsQuery } from '../../redux';
-import extractIdFromUrl from '../../utils/extractIdFromUrl.ts';
+import { SearchResultsProps } from '@/types';
+import { useFetchResultsQuery } from '@/redux/starAPI';
+import extractIdFromUrl from '@/utils/extractIdFromUrl';
 
 const SearchResults: React.FC<SearchResultsProps> = ({
     searchTerm,
@@ -16,25 +16,21 @@ const SearchResults: React.FC<SearchResultsProps> = ({
     handlePrevPage,
 }) => {
     const [page, setPage] = useState(currentPage);
+    const router = useRouter();
 
     const {
         data = { results: [], next: null, previous: null },
         isLoading,
         error,
     } = useFetchResultsQuery({ searchTerm, pageNumber: page });
-    console.log(data);
+
     const next = data.next;
     const prev = data.previous;
     const searchResults = data.results;
 
-    const navigate = useNavigate();
-    const location = useLocation();
-
     const handleCharacterClick = (id: string) => {
-        const queryParams = new URLSearchParams(location.search);
-        const urlQuery = queryParams.toString();
-        console.log(urlQuery);
-        navigate(`/details/${id}/?${urlQuery}`);
+        const urlQuery = router.asPath.split('?')[1] || '';
+        router.push(`/details/${id}?${urlQuery}`);
     };
 
     const loadNextPage = () => {
@@ -67,9 +63,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                                 key={extractIdFromUrl(result.url)}
                                 character={result}
                                 onClick={() =>
-                                    handleCharacterClick(
-                                        extractIdFromUrl(result.url),
-                                    )
+                                    handleCharacterClick(extractIdFromUrl(result.url))
                                 }
                             />
                         ))}

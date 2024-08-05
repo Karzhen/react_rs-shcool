@@ -1,4 +1,5 @@
-import HomePage from '../components/HomePage/HomePage';
+import LayoutHome from '../components/HomePage/HomePage';
 
-const Home: React.FC = () => <HomePage />;
-export default Home;
+export default function HomePage() {
+    return <LayoutHome />;
+}

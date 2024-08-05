@@ -1,14 +1,22 @@
-import React, { CSSProperties } from 'react';
+import React, {CSSProperties, ReactNode} from 'react';
 import { useRouter } from 'next/router';
 import SearchInput from '../SearchInput/SearchInput';
 import SearchResults from '../SearchResults/SearchResults';
-import './HomePage.css';
-import { useTheme } from '../../ThemeContext';
+import { useTheme } from '@/ThemeContext';
 import Dropdown from '../DropDown/DropDown';
-import { useSearch } from '../../hooks/useSearch';
+import { useSearch } from '@/hooks/useSearch';
+import styles from './HomePage.module.css';
 
-const HomePage: React.FC = () => {
+interface LayoutHomeProps {
+    children: React.ReactNode;
+}
+
+const HomePage: React.FC = ({ children }: LayoutHomeProps) => {
+    // const router = useRouter();
+    // const { id } = router.query;
+    // console.log(id)
     const { themeColors } = useTheme();
+
     const {
         searchTerm,
         currentPage,
@@ -18,19 +26,17 @@ const HomePage: React.FC = () => {
     } = useSearch();
 
     return (
-        <div
-            className="home-page"
-            style={{ ...(themeColors as CSSProperties) }}
-        >
+        <div className={styles["home-page"]} style={{ ...(themeColors as CSSProperties) }}>
             <SearchInput onSearch={handleSearch} />
             <Dropdown />
-            <div className="content">
+            <div className={styles["content"]}>
                 <SearchResults
                     searchTerm={searchTerm}
                     currentPage={currentPage}
                     handleNextPage={handleNextPage}
                     handlePrevPage={handlePrevPage}
                 />
+                {children}
             </div>
         </div>
     );

@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "format:fix": "prettier --write ./src",
+    "ci:format": "prettier --check ./src",
     "start": "next start",
     "lint": "next lint"
   },
