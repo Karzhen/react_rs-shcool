@@ -9,7 +9,7 @@ import {
     fetchStarshipNames,
     fetchVehicleNames,
 } from '../../utils/fetchPersonal';
-import {CharacterInfo} from './CharacterInfo';
+import { CharacterInfo } from './CharacterInfo';
 
 const Details: React.FC<{ id: string }> = ({ id }) => {
     const router = useRouter();

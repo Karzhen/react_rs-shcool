@@ -1,21 +1,29 @@
 import { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
-import { store } from '@/redux/store';
+import {store, wrapper} from '@/redux/store';
 import { ThemeProvider } from '@/ThemeContext';
-import Header from '@/components/Header/Header';
-import Footer from '@/components/Footer/Footer';
 import '../index.css';
+import Layout from "@/components/Layout/Layout";
+import {ReactElement, ReactNode} from "react";
+import {NextPage} from "next";
 
-function MyApp({ Component, pageProps }: AppProps) {
+export type PageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
+    getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+    Component: PageWithLayout;
+};
+
+export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+    const getLayout = Component.getLayout ?? ((page: ReactNode) => page);
     return (
         <Provider store={store}>
             <ThemeProvider>
-                <Header />
-                <Component {...pageProps} />
-                <Footer />
+                <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
             </ThemeProvider>
         </Provider>
     );
 }
 
-export default MyApp;
+// export default wrapper.withRedux(MyApp);

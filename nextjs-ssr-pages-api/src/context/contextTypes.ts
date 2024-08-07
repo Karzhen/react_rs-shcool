@@ -51,8 +51,7 @@ export const THEMES: Record<Theme, ThemeColors> = {
         '--background': LightSideColor.GRAY,
         '--border': LightSideColor.BLUE,
         '--main-bg': 'url(images/white-background.png)',
-        '--details-bg':
-            'url(images/details-white-background.png)',
+        '--details-bg': 'url(images/details-white-background.png)',
         '--transparent': 'rgba(255, 255, 255, 0.3)',
     },
     dark: {
@@ -63,8 +62,7 @@ export const THEMES: Record<Theme, ThemeColors> = {
         '--background': DarkSideColor.BLACK,
         '--border': DarkSideColor.GREEN,
         '--main-bg': 'url(images/black-background.png)',
-        '--details-bg':
-            'url(images/details-black-background.png)',
+        '--details-bg': 'url(images/details-black-background.png)',
         '--transparent': 'rgba(0, 0, 0, 0.5)',
     },
 };

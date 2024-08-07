@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {ReactNode, useEffect, useState} from 'react';
 import { useRouter } from 'next/router';
 import Loader from '@/components/Loader/Loader';
-// import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+// import ErrorMessage from '@/components/ErrorMessage/ErrorMessage';
 import styles from '@/components/Details/Details.module.css';
 import { Character, Nullable } from '@/types';
 import {
@@ -11,13 +11,13 @@ import {
     fetchVehicleNames,
 } from '@/utils/fetchPersonal';
 import { CharacterInfo } from '@/components/Details/CharacterInfo';
-import LayoutHome from '@/components/HomePage/HomePage';
+import HomePage from '@/pages/index';
 
 interface DetailsProps {
     id: string;
 }
 
-const Details: React.FC = () => {
+const Details = () => {
     const router = useRouter();
     const { id } = router.query;
     const [character, setCharacter] = useState<Nullable<Character>>(null);
@@ -30,7 +30,9 @@ const Details: React.FC = () => {
         const fetchCharacter = async () => {
             try {
                 setIsLoading(true);
-                const response = await fetch(`https://swapi.dev/api/people/${id}/`);
+                const response = await fetch(
+                    `https://swapi.dev/api/people/${id}/`,
+                );
                 if (!response.ok) {
                     throw new Error('Failed to fetch character details');
                 }
@@ -54,31 +56,30 @@ const Details: React.FC = () => {
     }, [id]);
 
     const handleBack = () => {
-        const { pathname, search } = window.location;
-        const newPathname = pathname.replace(/\/details\/\d+/, '');
-        router.replace(`${newPathname}${search}`);
+        console.log(router)
+        // const { pathname, search } = window.location;
+        const newPathname = router.asPath.replace(/\/details\/\d+/, '');
+        console.log(newPathname)
+        router.replace(`/${newPathname}`);
     };
 
     if (isLoading) {
         return (
-            <LayoutHome>
-                <Loader />
-            </LayoutHome>
+            <Loader />
         );
     }
 
-    // if (error) {
-    //     return <ErrorMessage error={error} />;
-    // }
-
     return (
-        <LayoutHome>
-            <div className={styles.container}>
-                <button onClick={handleBack}>Close</button>
-                {character && <CharacterInfo character={character} />}
-            </div>
-        </LayoutHome>
+        <div className={styles.container}>
+            <button onClick={handleBack}>Close</button>
+            {character && <CharacterInfo character={character} />}
+        </div>
     );
 };
 
+Details.getLayout = function getLayout(Details: ReactNode) {
+    return <HomePage>{Details}</HomePage>;
+};
+
 export default Details;
+

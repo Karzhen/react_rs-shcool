@@ -9,7 +9,10 @@ export const useSearch = () => {
     const search = (query.search as string) || '';
     const page = parseInt(query.page as string, 10) || 1;
 
-    const [searchTerm, setSearchTerm] = useLocalStorage('lastSearchTerm', search);
+    const [searchTerm, setSearchTerm] = useLocalStorage(
+        'lastSearchTerm',
+        search,
+    );
     const [currentPage, setCurrentPage] = useState(page);
 
     const handleSearch = (term: string) => {

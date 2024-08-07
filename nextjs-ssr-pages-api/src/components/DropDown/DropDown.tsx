@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux';
-import { clearCharacters } from '../../redux/selectedCharactersSlice';
+import { RootState } from '@/redux/store';
+import { clearCharacters } from '@/redux/selectedCharactersSlice';
 import styles from './Dropdown.module.css';
 import Papa from 'papaparse';
 import { saveAs } from 'file-saver';

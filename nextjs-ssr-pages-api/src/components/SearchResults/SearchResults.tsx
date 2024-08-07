@@ -63,7 +63,9 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                                 key={extractIdFromUrl(result.url)}
                                 character={result}
                                 onClick={() =>
-                                    handleCharacterClick(extractIdFromUrl(result.url))
+                                    handleCharacterClick(
+                                        extractIdFromUrl(result.url),
+                                    )
                                 }
                             />
                         ))}

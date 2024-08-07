@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { StateCharacter } from '../types';
+import { StateCharacter } from '@/types';
 
 interface SelectedCharactersState {
     selected: StateCharacter[];
