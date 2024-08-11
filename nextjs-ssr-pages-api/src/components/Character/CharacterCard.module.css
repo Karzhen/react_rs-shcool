@@ -1,0 +1,75 @@
+.container {
+    position: relative;
+}
+
+.card {
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.result-name {
+    align-self: center;
+    color: var(--header);
+}
+
+.characterDetail {
+    color: var(--text);
+}
+
+.checkbox {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background-color: var(--background);
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition:
+        background-color 0.3s,
+        border-color 0.3s;
+}
+
+.checkbox:checked {
+    background-color: var(--primary);
+    border-color: var(--secondary);
+}
+
+.checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--secondary);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.checkbox:hover {
+    border-color: var(--secondary);
+}
+
+.checkbox:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 5px var(--secondary);
+}

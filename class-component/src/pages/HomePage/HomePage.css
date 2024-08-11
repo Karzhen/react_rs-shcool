@@ -1,0 +1,12 @@
+.home-page {
+    height: calc(100vh - 110px);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--transparent);
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}

@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "file-saver": "^2.0.5",
+    "next-redux-wrapper": "^8.1.0",
+    "papaparse": "^5.4.1"
+  }
+}
