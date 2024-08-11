@@ -14,15 +14,10 @@ const SearchResults: React.FC<SearchResultsProps> = ({
     currentPage,
     handleNextPage,
     handlePrevPage,
+    data,
 }) => {
     const [page, setPage] = useState(currentPage);
     const router = useRouter();
-
-    const {
-        data = { results: [], next: null, previous: null },
-        isLoading,
-        error,
-    } = useFetchResultsQuery({ searchTerm, pageNumber: page });
 
     const next = data.next;
     const prev = data.previous;
@@ -51,11 +46,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
 
     return (
         <div className={styles.container}>
-            {isLoading ? (
-                <Loader />
-            ) : error ? (
-                <ErrorMessage error={error} />
-            ) : searchResults.length > 0 ? (
+            {searchResults.length > 0 ? (
                 <>
                     <div className={styles.grid}>
                         {searchResults.map((result) => (

@@ -4,16 +4,12 @@ import { ApiResponse } from '@/types';
 import { HYDRATE } from "next-redux-wrapper";
 import { RootState } from '@/redux/store';
 
-function isHydrateAction(action: Action): action is PayloadAction<RootState> {
-    return action.type === HYDRATE
-}
-
 export const StarAPI = createApi({
     reducerPath: 'starAPI',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://swapi.dev/api/' }),
     extractRehydrationInfo(action, { reducerPath }) {
-        if (isHydrateAction(action)) {
-            return action.payload[reducerPath]
+        if (action.type === HYDRATE) {
+            return (action.payload as any)[reducerPath]
         }
     },
     tagTypes: [],
@@ -22,15 +18,17 @@ export const StarAPI = createApi({
             ApiResponse,
             { searchTerm: string; pageNumber: number }
         >({
-            query: ({ searchTerm, pageNumber }) =>
+            query: ({ searchTerm = '', pageNumber= 1 }) =>
                 `people/?search=${searchTerm}&page=${pageNumber}`,
         }),
     }),
 });
 
-export const { useFetchResultsQuery } = StarAPI;
+// export const { useFetchResultsQuery } = StarAPI;
 
 export const {
-    useGetCharactersQuery,
+    useFetchResultsQuery,
     util: { getRunningQueriesThunk },
 } = StarAPI;
+
+export const { fetchResults } = StarAPI.endpoints;

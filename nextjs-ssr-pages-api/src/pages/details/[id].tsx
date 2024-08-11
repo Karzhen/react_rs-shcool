@@ -11,7 +11,7 @@ import {
     fetchVehicleNames,
 } from '@/utils/fetchPersonal';
 import { CharacterInfo } from '@/components/Details/CharacterInfo';
-import HomePage from '@/pages/index';
+import HomePage from '@/pages';
 
 interface DetailsProps {
     id: string;

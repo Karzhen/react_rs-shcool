@@ -2,7 +2,7 @@ import { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import {store, wrapper} from '@/redux/store';
 import { ThemeProvider } from '@/ThemeContext';
-import '../index.css';
+import '@/index.css';
 import Layout from "@/components/Layout/Layout";
 import {ReactElement, ReactNode} from "react";
 import {NextPage} from "next";
@@ -15,15 +15,15 @@ type AppPropsWithLayout = AppProps & {
     Component: PageWithLayout;
 };
 
-export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+export function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     const getLayout = Component.getLayout ?? ((page: ReactNode) => page);
     return (
-        <Provider store={store}>
+        // <Provider store={store}>
             <ThemeProvider>
                 <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
             </ThemeProvider>
-        </Provider>
+        // </Provider>
     );
 }
 
-// export default wrapper.withRedux(MyApp);
+export default wrapper.withRedux(MyApp);

@@ -3,7 +3,7 @@ import { StarAPI } from './starAPI';
 import selectedCharactersReducer from './selectedCharactersSlice';
 import { createWrapper } from "next-redux-wrapper";
 
-export const store = configureStore({
+export const store = () => configureStore({
     reducer: {
         [StarAPI.reducerPath]: StarAPI.reducer,
         selectedCharacters: selectedCharactersReducer,
@@ -19,4 +19,4 @@ export type AppStore = ReturnType<typeof store>;
 export type RootState = ReturnType<AppStore['getState']>;
 export type AppDispatch = ReturnType<typeof store['dispatch']>;
 
-export const wrapper = createWrapper(store, { debug: true });
+export const wrapper = createWrapper<AppStore>(store, { debug: true });

@@ -1,7 +1,7 @@
 import React from 'react';
 import CharacterDetail from './CharacterDetail.tsx';
 import styles from './CharacterCard.module.css';
-import { CharacterCardProps } from '../../types.ts';
+import { CharacterCardProps } from '@/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux';
 import {
