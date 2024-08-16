@@ -4,29 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5f555d1-f316-4ad5-8c4f-624c23a483fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/eslint.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/public/vite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/assets/react.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/main.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/vite-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/tsconfig.node.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/vite.config.ts" afterDir="false" />
+    <list default="true" id="64115ad2-63fc-4944-a495-41a3f707c575" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/forms/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/forms/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/forms/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/forms/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/main.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="nextjs-ssr-pages-api" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,10 +31,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
-}</component>
-  <component name="ProjectId" id="2kW8sktyOtT1pcx7gV09fqkMPCc" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2kkjcxJ7pJFl8kyEhQsqK6apzvU" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -62,17 +49,25 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/karzhen/Desktop/My way into IT/RS School/state_3/react_rs-shcool/nextjs-ssr-pages-api/node_modules/typescript/lib"
+    "nodejs_package_manager_path": "npm"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/forms/.husky" />
-      <recent name="$PROJECT_DIR$/forms" />
     </key>
   </component>
   <component name="RunManager" selected="npm.husky:pre-commit">
+    <configuration name="format:fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/forms/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="format:fix" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="husky:pre-commit" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/forms/package.json" />
       <command value="run" />
@@ -93,35 +88,23 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/nextjs-ssr-pages-api/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="test" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="npm.husky:pre-commit" />
+        <item itemvalue="npm.format:fix" />
         <item itemvalue="npm.prepare" />
-        <item itemvalue="npm.test" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b5f555d1-f316-4ad5-8c4f-624c23a483fa" name="Changes" comment="" />
-      <created>1723388181330</created>
+      <changelist id="64115ad2-63fc-4944-a495-41a3f707c575" name="Changes" comment="" />
+      <created>1723834551934</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1723388181330</updated>
-      <workItem from="1723388183706" duration="4147000" />
-      <workItem from="1723827718152" duration="1085000" />
-      <workItem from="1723828814210" duration="2415000" />
+      <updated>1723834551934</updated>
+      <workItem from="1723834553178" duration="3988000" />
     </task>
     <servers />
   </component>
