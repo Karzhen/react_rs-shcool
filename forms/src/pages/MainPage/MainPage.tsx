@@ -20,10 +20,10 @@ export default function Main() {
                 <Tile props={hookForm} />
             </div>
             <div className={styles['form_link__wrapper']}>
-                <Link to="/uncontrolled-form" className="form_link">
+                <Link to="/uncontrolled-form" className={styles['form_link']}>
                     Uncontrolled
                 </Link>
-                <Link to="/hook-form" className="form_link">
+                <Link to="/hook-form" className={styles['form_link']}>
                     Controlled
                 </Link>
             </div>

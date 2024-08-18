@@ -1,12 +1,15 @@
 import React from 'react';
-import { FieldError } from 'react-hook-form';
+import { FieldError, UseFormRegister } from 'react-hook-form';
 import styles from './FileInput.module.css';
 import FormError from '../FormError/FormError.tsx';
+import { MyForm } from '../Form/FormTypes.ts';
+
+type FormField = "name" | "age" | "email" | "password" | "gender" | "country" | "picture" | "confirm_password" | "acceptTermsAndConditions";
 
 interface FileInputProps {
-    id: string;
+    id: FormField;
     label: string;
-    register: any;
+    register: UseFormRegister<MyForm>;
     error?: FieldError;
 }
 

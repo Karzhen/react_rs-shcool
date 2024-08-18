@@ -1,12 +1,13 @@
 import React from 'react';
-import { FieldError } from 'react-hook-form';
+import { FieldError, UseFormRegister } from 'react-hook-form';
 import styles from './CheckboxInput.module.css';
 import FormError from '../FormError/FormError.tsx';
+import { MyForm } from '../Form/FormTypes.ts';
 
 interface CheckboxInputProps {
     id: string;
     label: string;
-    register: any;
+    register: UseFormRegister<MyForm>;
     error?: FieldError;
 }
 

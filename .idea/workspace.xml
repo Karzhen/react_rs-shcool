@@ -5,36 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64115ad2-63fc-4944-a495-41a3f707c575" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/forms/src/components/CheckboxInput/CheckboxInput.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/components/CheckboxInput/CheckboxInput.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/components/FileInput/FileInput.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/components/FileInput/FileInput.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/components/FormError/FormError.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/components/FormError/FormError.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/components/RadioInput/RadioInput.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/components/RadioInput/RadioInput.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/components/SelectInput/SelectInput.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/components/SelectInput/SelectInput.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/components/TextInput/TextInput.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/components/TextInput/TextInput.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/src/pages/UncontrolledForm/UncontrolledForm.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/src/pages/HookForm/HookForm.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/forms/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/forms/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/src/components/Tile/Tile.css" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/components/Tile/Tile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/src/components/Tile/Tile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/components/Tile/Tile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/src/components/Tile/Tile.type.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/components/Tile/Tile.type.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/src/components/CheckboxInput/CheckboxInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/components/CheckboxInput/CheckboxInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/src/components/FileInput/FileInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/components/FileInput/FileInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/src/components/RadioInput/RadioInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/components/RadioInput/RadioInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/src/components/SelectInput/SelectInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/components/SelectInput/SelectInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/src/components/TextInput/TextInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/components/TextInput/TextInput.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/main.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms/src/pages/HookForm/HookForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/pages/HookForm/HookForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/src/pages/MainPage/MainPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/pages/MainPage/MainPage.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms/src/pages/MainPage/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/pages/MainPage/MainPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms/src/pages/UncontrolledForm/UncontrolledForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/pages/UncontrolledForm/UncontrolledForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/src/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/src/store/slices/countries.json" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/store/slices/countries.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/src/store/slices/countriesSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/store/slices/countriesSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/src/store/slices/formDataSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/forms/src/store/slices/formDataSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/forms/tsconfig.app.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +77,17 @@
       <recent name="$PROJECT_DIR$/forms/.husky" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.format:fix">
+  <component name="RunManager" selected="npm.build">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/forms/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/forms/package.json" />
       <command value="run" />
@@ -139,6 +130,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.format:fix" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.husky:pre-commit" />
@@ -154,7 +146,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723834551934</updated>
-      <workItem from="1723834553178" duration="26194000" />
+      <workItem from="1723834553178" duration="28311000" />
     </task>
     <servers />
   </component>

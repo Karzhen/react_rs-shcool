@@ -1,12 +1,13 @@
 import React from 'react';
-import { FieldError } from 'react-hook-form';
+import { FieldError, UseFormRegister } from 'react-hook-form';
 import styles from './RadioInput.module.css';
 import FormError from '../FormError/FormError.tsx';
+import { MyForm } from '../Form/FormTypes.ts';
 
 interface RadioInputProps {
     name: string;
     options: { id: string; label: string; value: string }[];
-    register: any;
+    register: UseFormRegister<MyForm>;
     error?: FieldError;
 }
 
