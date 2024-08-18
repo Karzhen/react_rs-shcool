@@ -5,8 +5,14 @@ import Tile from '../../components/Tile/Tile';
 import styles from './MainPage.module.css';
 
 export default function Main() {
-    const uncontrolledForm = useSelector((state: RootState) => state.formData.uncontrolledFormData);
-    const hookForm = useSelector((state: RootState) => state.formData.hookFormData);
+    const uncontrolledForm = useSelector(
+        (state: RootState) => state.formData.uncontrolledFormData
+    );
+    const hookForm = useSelector(
+        (state: RootState) => state.formData.hookFormData
+    );
+    console.log(uncontrolledForm);
+    console.log(hookForm);
     return (
         <>
             <div className={styles['tiles-wrapper']}>

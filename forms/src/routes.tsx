@@ -22,7 +22,10 @@ const AppRoutes: React.FC = () => {
             </nav>
             <Routes>
                 <Route path="/" element={<MainPage />} />
-                <Route path="/uncontrolled-form" element={<UncontrolledFormPage />} />
+                <Route
+                    path="/uncontrolled-form"
+                    element={<UncontrolledFormPage />}
+                />
                 <Route path="/hook-form" element={<HookFormPage />} />
             </Routes>
         </Router>

@@ -1,7 +1,5 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import countriesData from './countries.json';
-
-const initialCountries = countriesData.countries;
 
 interface CountriesState {
     initialCountries: string[];
@@ -10,7 +8,6 @@ interface CountriesState {
 const initialState: CountriesState = {
     initialCountries: countriesData.countries,
 };
-
 
 const countriesSlice = createSlice({
     name: 'countries',

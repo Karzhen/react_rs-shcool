@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 interface FormData {
     name: string;
@@ -26,21 +26,24 @@ const formDataSlice = createSlice({
     initialState,
     reducers: {
         submitUncontrolled(state, action) {
-            state.uncontrolled = action.payload;
+            state.uncontrolledFormData = action.payload;
         },
         submitControlled(state, action) {
-            state.controlled = action.payload;
+            state.hookFormData = action.payload;
         },
         setControlledImage(state, action) {
-            state.controlled.image = action.payload;
+            state.hookFormData.image = action.payload;
         },
         setUncontrolledImage(state, action) {
-            state.uncontrolled.image = action.payload;
+            state.uncontrolledFormData.image = action.payload;
         },
     },
 });
 
-export const { submitUncontrolled, submitControlled, setControlledImage, setUncontrolledImage } =
-    formDataSlice.actions;
+export const {
+    submitUncontrolled,
+    submitControlled,
+    setControlledImage,
+    setUncontrolledImage,
+} = formDataSlice.actions;
 export default formDataSlice.reducer;
-

@@ -1,0 +1,83 @@
+.form_wrapper {
+    width: 350px;
+    padding: 10px 20px;
+    background-color: #1e4d478d;
+    border-radius: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    margin-left: 10px;
+}
+
+.form_wrapper button {
+    cursor: pointer;
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.8em;
+    background-color: #1e4d478d;
+    border: 1px solid #f2faf6;
+    border-radius: 5px;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: none;
+    background-color: #3b47468d;
+}
+
+.form_wrapper button:hover {
+    background-color: #7ac4ba86;
+}
+
+.input-file {
+    position: relative;
+}
+.input-file span {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 0.8em;
+    vertical-align: middle;
+    color: rgb(255 255 255);
+    text-align: center;
+    border-radius: 4px;
+    background-color: #419152;
+    line-height: 22px;
+    height: 40px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: none;
+    margin: 0;
+    transition: background-color 0.2s;
+}
+.input-file input[type='file'] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+.input-file:hover span {
+    background-color: #59be6e;
+}
+
+#country {
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+}

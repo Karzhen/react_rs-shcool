@@ -9,7 +9,10 @@ const App: React.FC = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<MainPage />} />
-                <Route path="/uncontrolled-form" element={<UncontrolledForm />} />
+                <Route
+                    path="/uncontrolled-form"
+                    element={<UncontrolledForm />}
+                />
                 <Route path="/hook-form" element={<HookForm />} />
             </Routes>
         </Router>

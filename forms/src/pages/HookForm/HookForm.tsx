@@ -14,16 +14,23 @@ interface FormValues {
 }
 
 const HookForm: React.FC = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<FormValues>();
 
-    const onSubmit: SubmitHandler<FormValues> = data => {
+    const onSubmit: SubmitHandler<FormValues> = (data) => {
         console.log(data);
     };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             {/* Поля формы */}
-            <input {...register("name", { required: true })} placeholder="Name" />
+            <input
+                {...register('name', { required: true })}
+                placeholder="Name"
+            />
             {errors.name && <span>This field is required</span>}
 
             {/* Добавьте остальные поля формы */}
