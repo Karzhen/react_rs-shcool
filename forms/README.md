@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
+# Forms project with using React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Структура проекта
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- forms/
+- ├── node_modules/
+- ├── public/
+- ├── src/
+- │   ├── assets/                    # Файлы с картинками, шрифты и другие статические ресурсы
+- │   ├── components/                # Переиспользуемые компоненты
+- │   │   ├── FormInput.tsx          # Общий компонент для полей ввода с валидацией
+- │   │   ├── PasswordStrength.tsx   # Компонент для отображения силы пароля
+- │   │   ├── CountryAutocomplete.tsx# Компонент автозаполнения для стран
+- │   │   └── ...                    # Другие переиспользуемые компоненты
+- │   ├── forms/                     # Формы
+- │   │   ├── UncontrolledForm.tsx   # Форма с неконтролируемыми компонентами
+- │   │   ├── HookForm.tsx           # Форма на базе React Hook Form
+- │   │   └── validation/            # Валидационные схемы для форм
+- │   │       ├── validationSchema.ts # Схема валидации для Yup
+- │   ├── pages/                     # Страницы/маршруты
+- │   │   ├── MainPage.tsx           # Главная страница с отображением данных
+- │   │   ├── UncontrolledFormPage.tsx # Страница с формой на неконтролируемых компонентах
+- │   │   ├── HookFormPage.tsx       # Страница с формой на React Hook Form
+- │   ├── store/                     # Redux-хранилище
+- │   │   ├── slices/                # Слайсы Redux Toolkit
+- │   │   │   ├── formDataSlice.ts   # Слайс для хранения данных из форм
+- │   │   │   └── countriesSlice.ts  # Слайс для хранения списка стран
+- │   │   └── store.ts               # Настройка Redux Store
+- │   ├── App.tsx                    # Корневой компонент приложения
+- │   ├── main.tsx                   # Точка входа
+- │   ├── routes.tsx                 # Файл с определением маршрутов
+- │   ├── index.css                  # Стили общего назначения
+- │   └── ...                        # Другие файлы и настройки (config, тесты и т.д.)
+- ├── .eslintrc.json                 # Конфигурация ESLint
+- ├── .prettierrc                    # Конфигурация Prettier
+- ├── package.json                   # npm скрипты и зависимости
+- └── vite.config.ts                 # Конфигурация Vite

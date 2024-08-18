@@ -1,0 +1,13 @@
+.tile-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #f2faf6;
+  border-radius: 5px;
+  background-color: #1e4d478d;
+}
+
+.tile-wrapper p {
+  color: #f2faf6;
+}
