@@ -1,0 +1,118 @@
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import Loader from '../components/Loader/Loader.tsx';
+import ErrorMessage from '../ErrorMessage.tsx';
+import styles from './Details.module.css';
+import { Character, Nullable } from '../types.ts';
+import CharacterDetail from '../components/Character/CharacterDetail.tsx';
+import { fetchFilmTitles, fetchHomeworldName, fetchVehicleNames } from '../utils/fetchPersonal.ts';
+
+interface DetailsProps {
+    // onClose: () => void;
+}
+
+const Details: React.FC<DetailsProps> = () => {
+    const location = useLocation();
+    console.log(location);
+    const { id } = useParams<{ id: string }>();
+    const [character, setCharacter] = useState<Nullable<Character>>(null);
+    const navigate = useNavigate();
+    console.log(character);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<Nullable<Error>>(null);
+    // const previousPath = useRef<string | null>(null);
+
+    useEffect(() => {
+        const fetchCharacter = async () => {
+            try {
+                setIsLoading(true);
+                const response = await fetch(
+                    `https://swapi.dev/api/people/${id}/`,
+                );
+                if (!response.ok) {
+                    throw new Error('Failed to fetch character details');
+                }
+                const data = await response.json();
+                data.homeworld = await fetchHomeworldName(data.homeworld);
+                data.films = await fetchFilmTitles(data.films);
+                data.vehicles = await fetchVehicleNames(data.vehicles);
+
+                setCharacter(data);
+            } catch (err: unknown) {
+                if (err instanceof Error) {
+                    setError(err);
+                }
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchCharacter();
+    }, [id]);
+
+    if (isLoading) {
+        return <Loader />;
+    }
+
+    if (error) {
+        return <ErrorMessage error={error} />;
+    }
+
+    const handleCloseDetails = () => {
+        const params = new URLSearchParams(location.search);
+        const search = params.get('search') || '';
+        const page = params.get('page') || '1';
+
+        navigate(`/?search=${search}&page=${page}`);
+    };
+
+    return (
+        <div className={styles.details}>
+            <button onClick={handleCloseDetails}>Close</button>
+            {character && (
+                <div className={styles.container}>
+                    <div>
+                        <h1>{character.name}</h1>
+                        <p>Height: {character.height}</p>
+                        <p>Height: {character.height}</p>
+                        <p>Mass: {character.mass}</p>
+                        <p>Hair Color: {character.hair_color}</p>
+                        <p>Skin Color: {character.skin_color}</p>
+                        <p>Eye Color: {character.eye_color}</p>
+                        <p>Birth Year: {character.birth_year}</p>
+                        <p>Gender: {character.gender}</p>
+                        {character.homeworld && (
+                            <CharacterDetail
+                                label="Homeworld"
+                                value={character.homeworld}
+                            />
+                        )}
+                        <p>
+                            <strong>Films:</strong>
+                        </p>
+                        <ul>
+                            {character.films.map((film, index) => (
+                                <li key={index}>{film}</li>
+                            ))}
+                        </ul>
+                        <p>
+                            <strong>Vehicles:</strong>
+                        </p>
+                        <ul>
+                            {character.vehicles.map((vehicle, index) => (
+                                <li key={index}>{vehicle}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    <img
+                        src={`/images/characters/${character.name.toLowerCase().replace(/ /g, '_')}.png`}
+                        alt={character.name}
+                        className={styles['character-image']}
+                    />
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default Details;
